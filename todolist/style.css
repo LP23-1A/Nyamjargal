@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    background: url("./image/background.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+.boards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.board {
+    width: 400px;
+    height: 400px;
+    background-color: #ebecf0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    gap: 8px;
+    height: fit-content;
+    padding: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /* position: relative; */
+    /* overflow: hidden; */
+}
+.boardHeader {
+    padding: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.boardCard {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+}
+.addbtn{
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
