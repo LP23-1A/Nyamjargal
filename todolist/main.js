@@ -22,14 +22,14 @@ let todo = [
     description: "wash the car on the weekend",
     status: "Todo",
     priority: "low",
-
+    id: "id-t333",
   },
   {
     title: "Read a book",
     description: "Read a javascript book",
     status: "Stuck",
     priority: "medium",
-    id: "id-r246",
+    id: "id-r222",
   },
 ];
 
@@ -82,7 +82,7 @@ function createBoard(name) {
   }
 }
 
-function createCard(data, cardid) {
+function createCard(data) {
   // countCard();
   const { title, description, status, priority, id } = data;
   let boardCard = document.createElement("div");
@@ -123,8 +123,8 @@ function createCard(data, cardid) {
 
   actionsDelete.onclick = function () {
     boardCard.remove();
-
     deleteCard(id);
+    countCard();
   };
 
   actionsEdit.onclick = function () {
@@ -132,14 +132,14 @@ function createCard(data, cardid) {
   };
 
   done.onclick = function () {
-    console.log(id)
+    //console.log(id)
     donecard(id);
   };
 
   let a = "card-" + (Math.random() * 1000).toFixed(0);
   boardCard.draggable = true;
   boardCard.setAttribute("data-id", a);
-  boardCard.setAttribute("id", a);
+  boardCard.setAttribute("id", id);
 
   boardCard.addEventListener("dragstart", (event) => {
     console.log("eee");
@@ -338,11 +338,11 @@ const donecard = (id) => {
   // console.log("Done called");
   todo.map((item) => {
     if (item.id === id) {
-      console.log(id);
+      console.log("passed id: ", id);
       item.status = "Done";
-      let chosenCard = document.querySelector(`#${id}`);
-      console.log(id);
-      // boards[3].appendChild(item);
+       let chosenCard = document.querySelector(`#${id}`);
+       console.log(chosenCard);
+      boards[3].appendChild(chosenCard);
     }
   });
 
@@ -373,9 +373,15 @@ function DragAndDrop() {
       if (draggedItem) {
         const draggingBoard = draggedItem.parentNode;
         if (draggingBoard !== event.currentTarget) {
-          event.currentTarget
-            .querySelector(".boardCards")
-            .appendChild(draggedItem);
+          event.currentTarget.querySelector(".boardCards").appendChild(draggedItem);
+         let id = draggedItem.getAttribute("id");
+         console.log("selected", id);
+          for (let i = 0; i < todo.length; i++) {
+            if(todo[i] === id){
+             
+            }
+            
+          }
           // event.currentTarget.appendChild(draggedItem);
         }
       }
