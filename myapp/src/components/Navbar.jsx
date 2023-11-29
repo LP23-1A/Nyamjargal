@@ -4,7 +4,7 @@ export default function navbar() {
   return (
     <div className="navbar flex justify-between my-[16px] mx-[80px] px-[32px]">
       <div className="logo text-[30px] font-bold">
-        <p>Logoooooooooooo</p>
+        <p>MYLOGO</p>
       </div>
       <div className="navbar-menu flex items-center font-medium">
         <ul className="header--list--container flex">
