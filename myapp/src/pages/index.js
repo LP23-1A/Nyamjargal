@@ -102,7 +102,7 @@ export default function Home() {
         <div className="container">
           <div className="hero-content">
             <div className="hero-introduction">
-              <h1 className="hero-title">Hi, I’m Sagar 👋</h1>
+              <h1 className="hero-title dark: text-white">Hi, I’m Sagar 👋</h1>
               <p className="hero-desc">
                 I'm a full stack developer (React.js & Node.js) with a focus on
                 creating (and occasionally designing) exceptional digital
