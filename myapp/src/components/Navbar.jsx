@@ -21,9 +21,9 @@ export default function navbar() {
       }
   }
   return (
-    <div className="flex justify-between my-[16px] mx-[80px] px-[32px]">
-      <div className="text-[30px] font-bold">
-        <p>LogoW</p>
+    <div className="navbar flex justify-between my-[16px] mx-[80px] px-[32px]">
+      <div className="logo text-[30px] font-bold">
+        <p>Logo</p>
       </div>
       <div className="flex items-center font-medium">
         <ul className="header--list--container flex">
