@@ -1,6 +1,5 @@
 import Head from "next/head.js";
 import Image from "next/image.js";
-import { Inter } from "next/font/google/index.js";
 import styles from "@/styles/Home.module.css";
 import Navbar from "../components/Navbar.jsx";
 import sagar from "@/Utilities/images/sagar.png";
@@ -17,8 +16,6 @@ import upwork from "@/Utilities/images/logo-upwork.png";
 import Work from "@/components/Work.jsx";
 import Contact from "@/components/Contact.jsx";
 import Copyright from "@/Utilities/images/Copyright.jsx";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   let Techdata = [
