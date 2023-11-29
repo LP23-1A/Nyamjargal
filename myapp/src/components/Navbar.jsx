@@ -21,11 +21,11 @@ export default function navbar() {
       }
   }
   return (
-    <div className="navbar flex justify-between my-[16px] mx-[80px] px-[32px]">
-      <div className="logo text-[30px] font-bold">
+    <div className="flex justify-between my-[16px] mx-[80px] px-[32px]">
+      <div className="text-[30px] font-bold">
         <p>Logo</p>
       </div>
-      <div className="navbar-menu flex items-center font-medium">
+      <div className="flex items-center font-medium">
         <ul className="header--list--container flex">
           {["About", "Work", "Testimonial", "Contact"].map((navItem, index) => {
             return <li key={"key-" + index}>{navItem}</li>;
