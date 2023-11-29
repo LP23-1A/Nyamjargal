@@ -1,7 +1,7 @@
 export default function (props) {
   return (
-    <div className="techstack flex">
-        <img className="techPhoto" src = {props.data.url}></img>
+    <div className="flex flex-col justify-center items-center gap-1">
+        <img className=" w-16 h-16" src = {props.data.url}></img>
         <p> {props.data.content}</p>
     </div>
   );

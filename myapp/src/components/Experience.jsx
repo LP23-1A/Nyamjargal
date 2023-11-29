@@ -2,9 +2,9 @@ import upwork from "@/Utilities/images/logo-upwork.png"
 export default function (){
     return (
         <>
-        <div className="exp flex gap48">
-             <img className="upwork" src = {upwork.src} />
-            <div className="exp-skills flex flex-column gap16">
+        <div className="flex p-8 rounded-xl exp gap-12">
+             <img className=" w-[102px] h-[28px]" src = {upwork.src} />
+            <div className="flex flex-col gap-4">
                 <h1>Sr. Frontend Developer</h1>
                 <div>
                     <ul>
@@ -21,9 +21,9 @@ export default function (){
               <p>Nov 2021 - Present</p>
         </div>
 
-        <div className="exp-skills exp flex gap48">
-             <img className="upwork" src = {upwork.src} />
-            <div className="flex flex-column gap16">
+        <div className="flex p-8 rounded-xl exp gap-12">
+             <img className="w-[102px] h-[28px]" src = {upwork.src} />
+            <div className="flex flex-col gap-4">
                 <h1>Team Lead</h1>
                 <div>
                     <ul>
@@ -40,9 +40,9 @@ export default function (){
               <p>Nov 2021 - Present</p>
         </div>
 
-        <div className="exp flex gap48">
-             <img className="upwork" src = {upwork.src} />
-            <div className="exp-skills flex flex-column gap16">
+        <div className="flex p-8 rounded-xl exp gap-12">
+             <img className="w-[102px] h-[28px]" src = {upwork.src} />
+            <div className="flex flex-col gap-4">
                 <h1>Team Lead</h1>
                 <div>
                     <ul>

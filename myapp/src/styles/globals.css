@@ -14,26 +14,7 @@
   justify-content: center;
 }
 
-.header--list--container {
-    gap: 24px;
-}
-.header--list--container li {
-    list-style: none;
-}
 
-.header--theme {
-    padding: 6px;
-    margin: 0px 16px 0px 48px;
-    border: 0;
-    background: none;
-}
-.header--cv--button {
-    color: #fff;
-    background-color: #111827;
-    border-radius: 12px;
-    padding: 6px 16px;
-    /* border: 0; */
-}
 .container  {
   display: flex;
   padding: 96px 112px;
@@ -42,218 +23,23 @@
   color: #111827;
   gap: 48px;
 }
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  width: 768px;
-  gap: 48px;
-}
-.hero-title {
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: -1.2px;
-}
-.hero-desc {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-}
-.hero-address {
-  flex-direction: column;
-  gap: 8px;
-}
-.hero-location {
-  gap: 8px;
-}
-.hero-available {
-  gap: 8px;
-}
-.hero-icon {
-  width: 24px;
-  height: 24px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.green-circle {
-  width: 8px;
-  height: 8px;
-  background-color: #10B981;
-  border-radius: 20px;
-}
-.social {
-  gap: 16px;
-}
-.hero-pic {
-  width: 280px;
-  height: 320px;
-  /* flex-shrink: 0; */
-}
+
 .PicBackground {
   /* background-color: #E5E7EB; */
   width: 400px;
   height: 400px;
 }
-.SectionTitle {
-  justify-content: center;
-  align-items: center;
-  padding: 4px 20px;
-  border-radius: 12px;
-  background-color: #c1cad8;
-  /* width: 200px; */
-}
-.about {
-  flex-direction: column;
-  gap: 48px;
-}
-.about-title {
-  justify-content: center;
-}
-.about-content {
-  gap: 48px;
-}
-.about-title {
-  min-width: 444px;
-}
-.about-right {
-  flex-direction: column;
-  gap: 24px;
-}
-.about-right-bottom {
-  flex-direction: column;
-  gap: 16px;
-  line-height: 24px;
-}
-.about-skills {
-  gap: 40px;
-  padding: 0px 13px;
-}
-.tech-skills {
-  flex-direction: column;
-  gap: 48px;
-  align-items: center;
-  justify-content: center;
-}
-.tech-skills-top {
-    flex-direction: column;
-    gap: 16px;
-}
-.tech-skills-bottom {
-  flex-wrap: wrap;
-  /* justify-content: center; */
-  gap: 48px 90px;
-}
-.techstack {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.techPhoto {
-  width: 64px;
-  height: 64px;
-}
-.experience {
-  padding: 0px 32px;
-  flex-direction: column;
-  gap: 48px;
-}
-.upwork {
-  width: 102px;
-  height: 28px;
-}
-.exp-skills {
-  color: var(--gray-600, #4B5563);
-font-family: Inter;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px; /* 150% */
-align-self: stretch;
-}
+
 
 .exp {
-  padding: 32px;
-  border-radius: 12px;
-  background: var(--gray-default, #FFF);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.06), 0px 4px 3px 0px rgba(0, 0, 0, 0.07);
 }
-/* ---------------- WORK CSS CODE ----------------- */
-.work {
-  padding: 0px 32px;
-  justify-content: center;
-  align-items: center;
-}
-.work-title {
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-.work-content {
-  border-radius: 12px 0px 0px 12px;
-}
-.work-photo {
-  border-radius: 12px 0px 0px 12px;
-  border-right: 1px solid var(--gray-100, #F3F4F6);
-  background: var(--gray-50, #F9FAFB);
-}
-.left-border {
-  border-radius: 0px 12px 12px 0px;
-  border-right: 1px solid var(--gray-100, #F3F4F6);
-  background: var(--gray-50, #F9FAFB);
-}
-.work-content {
-  border-radius: 12px 0px 0px 12px;
-  justify-content: center;
-  align-items: center;
-}
-.work-tech {
-  gap: 24px;
-  align-self: stretch;
-  border-radius: 12px 0px 0px 12px;
-}
-.work-desc {
-  width: 480px;
-}
-.technologies {
-  width: 480px;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-/*---------------------    CONTACT ------------- */
-.contact {
 
-}
-.contact-title-desc {
-  max-width: 576px;
-  text-align: center;
-}
 
-.contact-text {
-  color: var(--gray-900, #111827);
-text-align: center;
 
-/* Heading/H2/Semi Bold - Desktop */
-font-family: Inter;
-font-size: 36px;
-font-style: normal;
-font-weight: 600;
-line-height: 40px; /* 111.111% */
-letter-spacing: -0.72px;
-}
 
 /*---------------------      COPYRIGHT --------- */
-.copyright {
-  display: flex;
-  padding: 24px 80px;
-  justify-content: center;
-  align-items: center;
-  align-self: stretch;
-  gap: 8px;
-}
 
-.padding48 {
-  padding: 48px;
-}
 .row-center {
   justify-content: center;
 }
@@ -263,12 +49,7 @@ letter-spacing: -0.72px;
 .flex {
   display: flex;
 }
-.flex-column {
-  flex-direction: column;
-}
-.gray-background {
-  background-color: #F9FAFB;
-}
+
 .gap16 {
   gap: 16px;
 }
