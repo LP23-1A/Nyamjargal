@@ -17,6 +17,8 @@ import Work from "@/components/Work.jsx";
 import Contact from "@/components/Contact.jsx";
 import Copyright from "@/Utilities/images/Copyright.jsx";
 
+
+
 export default function Home() {
   let Techdata = [
     {
