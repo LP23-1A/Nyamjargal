@@ -2,20 +2,16 @@ import Head from "next/head.js";
 import Image from "next/image.js";
 import styles from "@/styles/Home.module.css";
 import Navbar from "../components/Navbar.jsx";
-import sagar from "@/Utilities/images/sagar.png";
-import Addressicon from "@/Utilities/images/address.jsx";
-import Githubicon from "@/Utilities/images/Github.jsx";
-import Twittericon from "@/Utilities/images/Twitter.jsx";
-import Figmaicon from "@/Utilities/images/Figma.jsx";
 import PicBackground from "@/Utilities/images/PicBackground.jsx";
 import SectionTitle from "@/components/SectionTitle.jsx";
-import aboutphoto from "@/Utilities/images/aboutPhoto.png";
 import TechStack from "@/components/TechStack.jsx";
 import Experience from "@/components/Experience.jsx";
 import upwork from "@/Utilities/images/logo-upwork.png";
 import Work from "@/components/Work.jsx";
 import Contact from "@/components/Contact.jsx";
 import Copyright from "@/Utilities/images/Copyright.jsx";
+import Hero from "@/components/Hero.jsx"
+import About from "@/components/About.jsx"
 
 export default function Home() {
   let Techdata = [
@@ -80,135 +76,22 @@ export default function Home() {
       url: "data:image/webp;base64,UklGRgYFAABXRUJQVlA4WAoAAAAQAAAArwAArwAAQUxQSLsAAAABJyAQSOFmFxERg+O2kRxp1gSw2AjmGhvAuQDG5Z/U2eqq110/IvrPwG0jRe4xL90jUhyImdkYYxcrx9ssGuX4KnduObDMlHL4ZHUth28Oz3IoaYMZyHmo6lzYWlUlg64mg87IGrp0D4cdVVYJO3J0gSTu6LJaeFBllbAjhx0bGZT4oMtqYUf5mTnLylxYdFVZG9GRwFyo0E0zM8r/dE2OOT2KdnUzvyVVtHvyCTi27JHPlrekiranP3USAFZQOCAkBAAAMCAAnQEqsACwAD7dZKdMqKYjojI06HkQG4libuFzQPBW+oGdm/mHKZcpSLEoGQD1AbYrzAfs56yH+A9THnGdQ95IHprezFkKt21QI4F9d4P1UOG31m3eTGZNXVhWMxgIq3aqBR72FyZIvxwaxZlIgx/dpkkz0nwltrf/Z7TNIW7Gq+OIOE8fI+5bTH0EAGvUlIuHNaWvN949zT9AGPatqbQ1gK4UoW4RdqMDWipWyqgJmsrV4YIDucFDwpzk+EkQmMo8bxJC2S9uwJAWZhWEj5tae7isngO+/KaAPA3Py4lLE0g1slporsmMcD2OS8OQ10AJW3IaiaVixvw032uvvaKTSsQoX1yzx0AA/v3Riv/j6D//5o5GP0ux5BHP/B+duZ3290zmlKg3pycDCwMv51wYj4tmsXMjB+DvDBlMf0Zn4Ps41XoJT07RU4FoyBTyxinVP8n5Kd8cs4HunIPl/zoXX151Y0Gr3EqCS2flgDzwpzNylVWBn1wu455KdmbVs+MRG91AYSLt/bAZB3/R7OvDA4OJ7PAp4x+V6BRhly5H5EglKOOn7WwLeoD11Axyqw2SsuDzMykD3zN40YmOZZWFGl98uRjYImx/rLzpdPJ/06IoSEzzSEM63RD7ZiBf0N9oR5wAOrAppNb3YSKZoXrkLW5h7ZrQMPmKGjvU5iSbL1xhE52lDazqKq7A0Sc566q8Xgi0Dt6QHLXgw9VRInER1kddB+yaiiiKjd2hQM+rVIfkjtp8+1KylNm0QSj1pvN93LODyyfYWT/1YS1UkmWiNeh7cTwtKeaxV26Y+4Kalozg82XXEDVfTX4x008CNVyIJTXDQPSHiKxX558Slfz8ATT4ijl9Gra7DechZmICpTaJWMjMLmbx/8CIC9ELoAXxfp534gDqgO7TkCSorG4E0Zwn53AA2pbpUvEjQieMiKHtWr9yle+Tfju9ZeWISGTxZgPPgAMevuE4AE3puQR0y7nZ+x+5soswVv2eqkl6HEL/llaAHNxN0zYtXlIAleuC3ZXL6gSRjGBw/ePoJr8UlPqApNh4jyE1mh0IrzGYBkBwRElDsPlbKYC6ybwlNAMCcluW/oGM/ZqmWFCk36of4/jiReV0z8xp92sOf2ulhDc6e4TygJIqATJ4rkBiGhqM8tYxFcJcGYntLnqSD10gvyU9WY58YlEpLlBMml8BDlAKhy8Wise4afDjzRVqrIurH/9bYI0nu/qbBGFc0bPchhz7wmwqqDJ4I/vVYnykA6zPdvytgLXWLRzNrJcGsJaIc0548ImqmYH8FA2RqLehS0OAnDeDi89pEg/kpHnnafc8Ma0V4veP4aF0tX87AGa0um6C2ZQSU31AOTLtvCB+kAgIRAl1tECXmxevwa9qrsnteLvBav37ahzbnM/MYAAAAA==",
       content: "Storybook",
     },
- 
+
     {
       url: "data:image/webp;base64,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",
       content: "PostgreSQL",
     },
   ];
 
-  let experienceData = [
-    {
-      logo: upwork.src,
-      title: "Sr. Frontend Developer",
-      experience: "",
-      year: "Nov 2021 - Present",
-    },
-  ];
   return (
-    <div className="main-container">
-      <div className="portfolio">
-        <Navbar />
-        <div className="container">
-          <div className="flex flex-col w-[768px] gap-12 dark:text-white">
-            <div className=" flex flex-col gap-2">
-              <h1 className="text-6xl font-bold">
-                Hi, I’m Sagar 👋
-              </h1>
-              <p>
-                I'm a full stack developer (React.js & Node.js) with a focus on
-                creating (and occasionally designing) exceptional digital
-                experiences that are fast, accessible, visually appealing, and
-                responsive. Even though I have been creating web applications
-                for over 7 years, I still love it as if it was something new.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2">
-                <Addressicon></Addressicon>
-                <p>Ahmedabad, India</p>
-              </div>
-              <div className="flex gap-2">
-                <div className="flex flex-col justify-center items-center w-6 h-6">
-                  <div className=" w-2 h-2 bg-[#10B981] rounded-3xl"></div>
-                </div>
-                <p>Available for new projects</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <Githubicon />
-              <Twittericon />
-              <Figmaicon />
-            </div>
-          </div>
-
-          <div>
-            <img src={sagar.src}></img>
-            {/* <PicBackground size = {3} position = {right}/> */}
-            {/* <PicBackground background="#E5E7EB" position="right"/> */}
-          </div>
-        </div>
-
-        
-        <div className="container bg-[#F9FAFB] dark:bg-[#111827]">
-          <div className="flex flex-col gap-12">
-            <div className="flex justify-center">
-              <SectionTitle title="About me" />
-            </div>
-            <div className="flex gap-12">      
-                <img className=" h-[480px]" src={aboutphoto.src}></img>{" "}
-          
-              <div className="flex flex-col gap-6">        
-                  <h1>Curious about me? Here you have it:</h1>       
-                <div className="flex flex-col gap-4">
-                  <p>
-                    I'm a passionate, self-proclaimed designer who specializes
-                    in full stack development (React.js & Node.js). I am very
-                    enthusiastic about bringing the technical and visual aspects
-                    of digital products to life. User experience, pixel perfect
-                    design, and writing clear, readable, highly performant code
-                    matters to me.
-                  </p>
-                  <p>
-                    I began my journey as a web developer in 2015, and since
-                    then, I've continued to grow and evolve as a developer,
-                    taking on new challenges and learning the latest
-                    technologies along the way. Now, in my early thirties, 7
-                    years after starting my web development journey, I'm
-                    building cutting-edge web applications using modern
-                    technologies such as Next.js, TypeScript, Nestjs,
-                    Tailwindcss, Supabase and much more.
-                  </p>
-                  <p>
-                    I am very much a progressive thinker and enjoy working on
-                    products end to end, from ideation all the way to
-                    development.
-                  </p>
-                  <p>
-                    When I'm not in full-on developer mode, you can find me
-                    hovering around on twitter or on indie hacker, witnessing
-                    the journey of early startups or enjoying some free time.
-                    You can follow me on Twitter where I share tech-related
-                    bites and build in public, or you can follow me on GitHub.
-                  </p>
-                  <p>Finally, some quick bits about me.</p>
-                  <div className="flex gap-10 px-3">
-                    <div className="">
-                      <ul className=" list-disc">
-                        <li> B.E. in Computer Engineering</li>
-                        <li> Full time freelancer</li>
-                      </ul>
-                    </div>
-                    <div className="">
-                      <ul className="list-disc">
-                        <li> Avid learner</li>
-                        <li> Aspiring indie hacker</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <p>
-                    One last thing, I'm available for freelance work, so feel
-                    free to reach out and say hello! I promise I don't bite 😉
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <div className="flex flex-col items-center main-container justify-center ">
+    
+            <Navbar />
+            <Hero/>
+            <About/>
 
         <div className="container">
-          <div className="flex flex-col gap-12 ">
+          <div className="flex flex-col gap-12  dark:text-white ">
             <div className="flex flex-col gap-4 items-center">
               <SectionTitle title="Skills" />
               <p>The skills, tools and technologies I am really good at:</p>
@@ -221,9 +104,8 @@ export default function Home() {
           </div>
         </div>
 
-        
-        <div className="container row-center  bg-[#F9FAFB]">
-          <div className="flex px-8 flex-col gap-12 items-center justify-center">
+        <div className=" bg-[#F9FAFB] container row-center  dark:bg-[#111827]">
+          <div className="flex px-8 flex-col gap-12 items-center justify-center  dark:text-white dark:bg-[#111827]">
             <div className="flex gap-4 flex-col justify-center items-center">
               <SectionTitle title="Experience" />
               <p>Here is a quick summary of my most recent experiences:</p>
@@ -234,8 +116,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container row-center">
-          <div className="flex flex-col px-8 gap-12 justify-center items-center">
+        <div className="container flex justify-center mx-auto">
+          <div className="flex flex-col px-8 gap-12 justify-center items-center dark:text-white">
             <div className="flex flex-col items-center gap-4">
               <SectionTitle title="work" />
               <p>Some of the noteworthy projects I have built:</p>
@@ -246,15 +128,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container flex flex-col row-center column-center">
-            <Contact />
+        <div className="container flex flex-col row-center column-center dark:text-white">
+          <Contact />
         </div>
 
         <div className="flex px-20 py-6 justify-center items-center gap-2">
           <Copyright></Copyright>
           <p>2023 | Designed and coded with ❤️️ by Sagar Shah</p>
         </div>
-      </div>
+     
     </div>
   );
 }

@@ -10,16 +10,16 @@
 
 .main-container {
   width: 100vw;
-  display: flex;
-  justify-content: center;
 }
 
+.background-dark {
+  background: #111827;
+}
 
-.container  {
+.container {
   display: flex;
+  width: 100%;
   padding: 96px 112px;
-  justify-content: space-between;
-  align-items: flex-start;
   color: #111827;
   gap: 48px;
 }
@@ -30,13 +30,10 @@
   height: 400px;
 }
 
-
 .exp {
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.06), 0px 4px 3px 0px rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.06),
+    0px 4px 3px 0px rgba(0, 0, 0, 0.07);
 }
-
-
-
 
 /*---------------------      COPYRIGHT --------- */
 
@@ -50,15 +47,4 @@
   display: flex;
 }
 
-.gap16 {
-  gap: 16px;
-}
-.gap48 {
-  gap: 48px;
-}
-.gap20 {
-  gap: 20px;
-}
-.gap8 {
-  gap: 8px;
-}
+
