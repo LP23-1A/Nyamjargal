@@ -16,6 +16,12 @@
   background: #111827;
 }
 
+.navbar {
+  width: 100%;
+  padding: 16px 112px;
+  color: #111827;
+  gap: 48px;
+}
 .container {
   display: flex;
   width: 100%;
@@ -34,8 +40,6 @@
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.06),
     0px 4px 3px 0px rgba(0, 0, 0, 0.07);
 }
-
-/*---------------------      COPYRIGHT --------- */
 
 .row-center {
   justify-content: center;

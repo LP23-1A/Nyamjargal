@@ -21,7 +21,7 @@ export default function navbar() {
       }
   }
   return (
-    <div className="flex justify-between my-[16px] mx-[80px] px-[32px]">
+    <div className="flex container justify-between my-[16px] mx-[80px] px-[32px]">
       <div className="text-[30px] font-bold">
         <p>Logo</p>
       </div>
