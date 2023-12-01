@@ -1,4 +1,4 @@
-import Addressicon from "@/Utilities/images/address.jsx";
+import Addressicon from "@/Utilities/images/Address.jsx";
 import Githubicon from "@/Utilities/images/Github.jsx";
 import Twittericon from "@/Utilities/images/Twitter.jsx";
 import Figmaicon from "@/Utilities/images/Figma.jsx";
@@ -20,7 +20,7 @@ export default function () {
         </div>
         <div className="flex flex-col gap-2">
           <div className="flex gap-2">
-            {/* <Addressicon></Addressicon> */}
+            <Addressicon></Addressicon>
             <p>Ahmedabad, India</p>
           </div>
           <div className="flex gap-2">
