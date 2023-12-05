@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import Trending from '@/components/Trending'
+import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,8 @@ const trendData = [
 
 export default function Home() {
   return (
-    <main >
+    <main className='flex flex-col gap-[100px]'>
+      <Navbar/>
          <div className="flex gap-5 justify-center">
         {trendData.map((element) => {
           return (
