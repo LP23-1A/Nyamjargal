@@ -1,8 +1,9 @@
-import { Inter } from "next/font/google";
+ import { Inter } from "next/font/google";
 import Trending from "@/components/Trending";
 import Navbar from "@/components/Navbar";
 import Carsoule from "@/components/Carsoule";
 import Allblog from "@/components/Allblog";
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 import { useEffect, useState } from "react";
@@ -46,7 +47,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col gap-[100px] pr-[350px] pl-[350px]">
+    <main className="flex flex-col gap-[100px]" >
+      <div className="flex flex-col gap-[100px] pr-[350px] pl-[350px]">
       <Navbar />
       <div>
         {carsouleData.map((element) => {
@@ -98,6 +100,8 @@ export default function Home() {
       <div className="flex pt-3 pb-3 pl-5 pr-5 items-center justify-center rounded-md border-2 border-solid-[#696A75] ">
         Load More
       </div>
+      </div>
+      <Footer/>
     </main>
   );
 }
