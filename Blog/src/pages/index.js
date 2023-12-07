@@ -96,10 +96,9 @@ export default function Home() {
             <Allblog/>
           </div>
       </div>
-
-      <div className="flex pt-3 pb-3 pl-5 pr-5 items-center justify-center rounded-md border-2 border-solid-[#696A75] ">
-        Load More
-      </div>
+          <div className="flex justify-center ">
+              <p className="flex justify-center items-center  border-2 border-solid-[#696A75] rounded-md  px-5 py-3  text-[#696A75]">    Load More</p>  
+          </div>
       </div>
       <Footer/>
     </main>
