@@ -22,7 +22,7 @@ export default function () {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <p>Homee</p>
+          <p>Home</p>
           <p>Blog</p>
           <p>Contact</p>
         </div>
