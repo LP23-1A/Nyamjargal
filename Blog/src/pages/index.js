@@ -6,8 +6,10 @@ import Allblog from "@/components/Allblog";
 import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
+
 let api = "https://dev.to/api/articles?username=gereltuyamz";
 
 const trendData = [
