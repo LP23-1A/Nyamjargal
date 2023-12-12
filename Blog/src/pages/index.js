@@ -1,4 +1,4 @@
- import { Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import Trending from "@/components/Trending";
 import Navbar from "@/components/Navbar";
 import Carsoule from "@/components/Carsoule";
@@ -6,7 +6,7 @@ import Allblog from "@/components/Allblog";
 import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
-import { useEffect, useState , useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 
@@ -35,74 +35,107 @@ const carsouleData = [
 
 export default function Home() {
   const [data, setData] = useState([]);
+  const valueRef = useRef("");
+  const initData = useRef([]);
+  const router = useRouter();
   const getData = async (api) => {
     let res = await axios.get(api);
-    setData((prev) => [...prev, ...res.data]);
+    initData.current = res.data;
+    setData(res.data);
   };
 
-  const handler = () => {
-    getData("https://dev.to/api/articles");
+  const reset = () => setData(initData.current);
+  const filter = (name) =>
+    setData(() => initData.current.filter((el) => el.tags === name));
+  const handler = () => getData("https://dev.to/api/articles");
+
+  const handlerInputValue = (value) => {
+    valueRef.current = value;
   };
+
+  const handlerRouter = (id) => router.push(`id=${id}`);
+  useEffect(() => {
+    getData(api);
+  }, []);
 
   useEffect(() => {
     getData(api);
   }, []);
 
   return (
-    <main className="flex flex-col gap-[100px]" >
+    <main className="flex flex-col gap-[100px]">
       <div className="flex flex-col gap-[100px] pr-[350px] pl-[350px]">
-      <Navbar />
-      <div>
-        {carsouleData.map((element) => {
-          return (
-            <Carsoule
-              img={element.img}
-              title={element.title}
-              desc={element.desc}
-            />
-          );
-        })}
-      </div>
-
-      <div className="flex justify-center flex-col gap-[30px]">
-          <h2 className=" font-bold">Trending</h2>
-        <div className="flex gap-5">
-          {trendData.map((element) => {
+        <Navbar />
+        <div>
+          {carsouleData.map((element) => {
             return (
-              <div>
-                <Trending
-                  url={element.url}
-                  desc={element.desc}
-                  title={element.title}
-                />
-              </div>
+              <Carsoule
+                img={element.img}
+                title={element.title}
+                desc={element.desc}
+              />
             );
           })}
         </div>
-      </div>
 
-      <div className="flex flex-col gap-8">
+        <div className="flex justify-center flex-col gap-[30px]">
+          <h2 className=" font-bold">Trending</h2>
+          <div className="flex gap-5">
+            {trendData.map((element) => {
+              return (
+                <div>
+                  <Trending
+                    url={element.url}
+                    desc={element.desc}
+                    title={element.title}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-8">
           <h2 className="font-bold">All Blog Post</h2>
           <div className="flex text-[12px] justify-between">
             <div className=" flex gap-5">
-              <p>All</p>
-              <p>Design</p>
-              <p>Travel</p>
-              <p>Fashion</p>
-              <p>Technology</p>
-              <p>Branding</p>
+              <p className=" cursor-pointer" onClick={reset}>All</p>
+              <p className=" cursor-pointer" onClick={ ()=> filter('webdev')}>Webdev</p>
+              <p className=" cursor-pointer" onClick={ ()=> filter('programing')}>Programing</p>
+              <p className=" cursor-pointer" onClick={ ()=> filter('nextjs')}>nextJs</p>
+              <p className=" cursor-pointer" onClick={ ()=> filter('technology')}>Technology</p>
+              <p className=" cursor-pointer" onClick={ ()=> filter('branding')}>Branding</p>
             </div>
-            <p className="">View All</p>
+            <p className=" cursor-pointer" onClick={reset}>View All</p>
           </div>
-          <div>
-            <Allblog/>
+          <div className="flex gap-5">
+            {/* <Allblog /> */}
+
+            {data.map((el, index) => {
+              return (
+                <div
+                  key={index}
+                  style={{
+                   backgroundImage: `url(${el.social_image})`,
+                    height: "500px",
+                    width: "500px",
+                  }}
+                  onClick={() => handlerRouter(el.id)}
+                >
+               
+                  {el.title} <h3>{el.tags}</h3>
+                </div>
+              );
+            })}
           </div>
+        </div>
+        <div className="flex justify-center ">
+          <p className="flex justify-center items-center  border-2 border-solid-[#696A75] rounded-md  px-5 py-3  text-[#696A75] cursor-pointer" onClick={handlerRouter}>
+            Load More
+          </p>
+        </div>
       </div>
-          <div className="flex justify-center ">
-              <p className="flex justify-center items-center  border-2 border-solid-[#696A75] rounded-md  px-5 py-3  text-[#696A75]">    Load More</p>  
-          </div>
-      </div>
-      <Footer/>
+      <Footer />
     </main>
   );
 }
