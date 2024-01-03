@@ -3,15 +3,19 @@ import bp from "body-parser"
 import dotenv from "dotenv"
 import postgres from "postgres"
 import  express, { response }  from "express";
-import bodyParser from "body-parser";
 import {pool} from "./db.js";
+import {user} from "./router/userRouter.js"
+import { category } from "./router/categoryRouter.js";
+import { uuid } from "uuidv4";
 
+//const id = uuid();
 dotenv.config();
 const PORT = process.env.PORT || 8000;
 const app = express();
-
-app.use(bp.json());
-
+app.use(express.json());
+app.use("/users", user);
+app.use("/category", category);
+/*
 
 app.get("/users", async (req, res) => {
     try {
@@ -23,7 +27,8 @@ app.get("/users", async (req, res) => {
         console.error(error);
     }
 });
-
+*/
+/*
 app.get("/customuser", async (req, res) => {
     const { name, email } = req.body;
     try {
@@ -35,11 +40,14 @@ app.get("/customuser", async (req, res) => {
         console.error(error);
     }
 });
+*/
 
+
+/*
 app.post("/createTable", async (_, res) => {
   try {
     const tableQueryText = `
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE IF NOT EXISTS category (
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       email VARCHAR(255) NOT NULL
@@ -50,7 +58,7 @@ app.post("/createTable", async (_, res) => {
     console.error(error);
   }
 });
-
+*/
 /*
 app.post("/createTable", async (_, res) => {
   try {
@@ -68,6 +76,8 @@ app.post("/createTable", async (_, res) => {
   }
 });
 */
+
+/*
 app.post("/createUser", async (req, response) => {
   const { name, email } = req.body;
   //console.log(name, email, 'req.body');
@@ -81,7 +91,8 @@ app.post("/createUser", async (req, response) => {
     response.send('error query')
   }
 });
-
+*/
+/*
 app.delete ("/deleteuser", async (req,response)=> {
   const { id,name, email } = req.body;
  // console.log(req.body);
@@ -95,7 +106,8 @@ app.delete ("/deleteuser", async (req,response)=> {
     console.log(error);
   }
 });
-
+*/
+/*
 app.put ("/updateuser", async (req,response)=>{
   const { id,name, email } = req.body;
   try {
@@ -106,6 +118,8 @@ app.put ("/updateuser", async (req,response)=>{
     console.log(error);
   }
 });
+*/
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);
 });

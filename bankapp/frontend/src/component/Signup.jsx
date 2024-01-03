@@ -4,7 +4,7 @@ export default function Signup (){
     return (
         <div className=" flex w-screen h-screen">
             <div className=" flex justify-center w-1/2 items-center">
-                <div className="">
+                <div className="flex">
                          <Logo/> <Geld/>
                 </div>
             
@@ -12,6 +12,9 @@ export default function Signup (){
             </div>
            <div className=" w-1/2 bg-[#0166FF] h-screen">
                 sds
+                <div className="glass">
+                    ddddddd
+                </div>
             </div> 
          </div>
     );
