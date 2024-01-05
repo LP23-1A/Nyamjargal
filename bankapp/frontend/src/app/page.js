@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import Signup from "@/component/Signup.jsx"
+
+import Login from './login/page.js'
 export default function Home() {
   return (
-      <Signup/>
+      <Login/>
     )
 }

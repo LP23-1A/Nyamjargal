@@ -7,8 +7,9 @@ export const createTable = async (_, res) => {
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
-      email VARCHAR(255) NOT NULL
+      email VARCHAR(255) NOT NULL 
     )`;
+    //      email VARCHAR(255) NOT NULL 
     await pool.query(tableQueryText);
     res.send("ok");
   } catch (error) {
@@ -39,38 +40,61 @@ export const alterTable = async (req,response)=>{
 };
 
 export const getOneUser = async (req, res) => {
-    const { name, email } = req.body;
+    const { email, password } = req.body;
     try {
         const queryText =
-     `SELECT * FROM users WHERE name='${name}' AND email='${email}'`;
+     `SELECT * FROM users WHERE name='${email}' AND email='${password}'`;
         const response = await pool.query(queryText);
+        console.log(response)
+        if(response.rows.length === 0) throw error
         res.send(response.rows);
+        console.log("success");
+
       } catch (error) {
-        console.error(error);
+        console.error("Wrong username & password");
+        res.status(400).send('Wrong username and password');
+      }
+};
+
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+      const queryText =
+   `SELECT * FROM users WHERE name='${email}' AND email='${password}'`;
+      const response = await pool.query(queryText);
+      console.log(response)
+      if(response.rows.length === 0) throw error
+      res.send(response.rows);
+      console.log("success");
+
+    } catch (error) {
+      console.error("Wrong username & password");
+      res.status(400).send('Wrong username and password');
     }
 };
 
 export const createUser =  async (req, response) => {
-    const { name, email, password } = req.body;
+    const { name , email,password } = req.body;
     //console.log(name, email, 'req.body');
     try {
       const queryText =
         "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *";
-      const res = await pool.query(queryText, [ name, email ,password]);
+      const res = await pool.query(queryText, [ name,email,password]);
       response.send(res.rows[0])
     } catch (error) {
       console.error(error);
-      response.send('error query')
+      response.send('error query eee')
     }
   };
 
   export const deleteUser = async (req,response)=> {
-    const { id,name, email } = req.body;
+    const { name,email } = req.body;
    // console.log(req.body);
     try {
       const queryText =
-     // `DELETE FROM users WHERE (name = '${name}' AND email = '${email}') OR id = '${id}'`;
-     `DELETE FROM users WHERE (name = $1 AND email = $2 OR id = $3`;
+     `DELETE FROM users WHERE name = '${name}' AND email = '${email}'`;
+     // `DELETE FROM users WHERE name = '(${name}' AND email = '${email}') OR '${id}'`;
+    // `DELETE FROM users WHERE (name = $1 AND email = $2`;
         await pool.query(queryText);
         response.send("Success");
     } catch (error) {

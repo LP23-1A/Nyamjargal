@@ -7,12 +7,14 @@ import {pool} from "./db.js";
 import {user} from "./router/userRouter.js"
 import { category } from "./router/categoryRouter.js";
 import { uuid } from "uuidv4";
+import cors from 'cors';
 
 //const id = uuid();
 dotenv.config();
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(express.json());
+app.use(cors({origin : "*"}));
 app.use("/users", user);
 app.use("/category", category);
 /*
