@@ -21,14 +21,10 @@ export default function Signup() {
       password,
     };
 
-    localStorage.setItem("input", JSON.stringify(input));
+  //  localStorage.setItem("input", JSON.stringify(input));
 
-    // let res = await axios.post(defaultUrl, {
-    //   name: name,
-    //   email: email,
-    //   password: password,
-    // });
-    // console.log(res, "res");
+     let res = await axios.post(defaultUrl, {name: name,email: email, password: password,});
+      console.log(res, "res");
   };
 
   const router = useRouter();
@@ -62,14 +58,8 @@ export default function Signup() {
               onChange={(event) => setpassword(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
-            <input
-              type="password"
-              placeholder="Re-password"
-              className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
-            />
-            <button className="btn btn-primary" onClick={handler}>
-              Sign up
-            </button>
+            <input type="password" placeholder="Re-password" className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>
+            <button className="btn btn-primary" onClick={handler}> Sign up </button>
           </div>
           <div className="flex">
             <h1>Already have account?</h1>

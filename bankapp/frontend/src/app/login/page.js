@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
 
-const api = 'http://localhost:8000/users/user';
-const api2 = 'http://localhost:8000/users';
+const api = 'http://localhost:8000/users/user1';
+//const api2 = 'http://localhost:8000/users';
 
 export default function Login() {
     const router = useRouter();
@@ -14,13 +14,22 @@ export default function Login() {
     const [password,  setpassword] = useState('');
 
     const handler = async () => {
-    // let res = await axios.get(api2);
-    let res = await axios.get(api, { email: email , password:password });
+      console.log("bbbbbb",email, password);
+      let res = await axios.post(api, {  email , password });
+      if (res.data === "success"){
+        router.push("/dashboard");
+      }
+      else {
+        alert("dddddd");
+        console.log("wrong username and password");
+      }
+      console.log("Hvseltiin hariu:" , res);
+  
+  
     
-     console.log(res, 'success');
-     console.log("email:" ,email);
-     console.log("password:" ,password);
-    // router.push("/signup");
+     //console.log("email:" ,email);
+    // console.log("password:" ,password);
+ 
     }
 
   return (
@@ -34,6 +43,9 @@ export default function Login() {
             <h2 className=" font-semibold leading-8">Welcome Back</h2>
             <p>Welcome back, Please enter your details</p>
           </div>
+
+        
+
           <div className="flex flex-col gap-4 w-full">
             <input type="text" placeholder="Email" onChange={(event) => setemail(event.target.value)} className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>
             <input type="password" placeholder="Password" onChange={(event) => setpassword(event.target.value)} className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>

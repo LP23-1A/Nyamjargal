@@ -1,19 +1,23 @@
 import express from 'express';
 import {
-    alterTable,
+    createTable,
+    deletetable,
     createUser,
     deleteUser,
-    getOneUser,
     getUsers,
+    getOneUser,
     updateUser,
     login
+    
 } from '../controller/user.js';
 
 const user = express.Router();
-user.route('/').get(getUsers).post(createUser);
-user.route('/altertable').put(alterTable);
+user.route('/createtable').post(createTable);
+user.route('/createuser').get(getUsers).post(createUser);
 user.route('/user').get(getOneUser).delete(deleteUser).put(updateUser);
+user.route('/user1').post(getOneUser);
 user.route('/login').get(login);
+user.route('/deletetable').delete(deletetable);
 //user.route('deleteuser').delete(deleteUser);
 export {user};
 
