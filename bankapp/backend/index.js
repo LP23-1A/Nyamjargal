@@ -17,6 +17,10 @@ app.use(express.json());
 app.use(cors({origin : "*"}));
 app.use("/users", user);
 app.use("/category", category);
+
+app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}.`);
+});
 /*
 
 app.get("/users", async (req, res) => {
@@ -122,6 +126,4 @@ app.put ("/updateuser", async (req,response)=>{
 });
 */
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}.`);
-});
+

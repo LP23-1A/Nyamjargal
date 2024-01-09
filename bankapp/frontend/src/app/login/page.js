@@ -5,8 +5,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
 
-const api = 'http://localhost:8000/users/user1';
-//const api2 = 'http://localhost:8000/users';
+const api = 'http://localhost:8000/users/login';
 
 export default function Login() {
     const router = useRouter();
@@ -14,22 +13,10 @@ export default function Login() {
     const [password,  setpassword] = useState('');
 
     const handler = async () => {
-      console.log("bbbbbb",email, password);
       let res = await axios.post(api, {  email , password });
       if (res.data === "success"){
         router.push("/dashboard");
       }
-      else {
-        alert("dddddd");
-        console.log("wrong username and password");
-      }
-      console.log("Hvseltiin hariu:" , res);
-  
-  
-    
-     //console.log("email:" ,email);
-    // console.log("password:" ,password);
- 
     }
 
   return (

@@ -11,7 +11,7 @@ export default function Signup() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-
+  const currency = "MNT";
   //const [data, setData ] = useState([]);
 
   const handler = async () => {
@@ -19,12 +19,13 @@ export default function Signup() {
       name,
       email,
       password,
+      currency: 'MNT',
     };
 
-  //  localStorage.setItem("input", JSON.stringify(input));
-
-     let res = await axios.post(defaultUrl, {name: name,email: email, password: password,});
-      console.log(res, "res");
+   localStorage.setItem("data", JSON.stringify(input));
+      router.push("/signupcurrency");
+     // let res = await axios.post(defaultUrl, {name: name,email: email, password: password,});
+     // console.log(res, "res");
   };
 
   const router = useRouter();

@@ -20,6 +20,7 @@ export const createTable = async (_, res) => {
     console.error(error);
   }
 };
+
 export const deletetable = async (req,response)=> {
   try {
     const queryText =
@@ -32,12 +33,13 @@ export const deletetable = async (req,response)=> {
 };
 
 export const createUser =  async (req, response) => {
-  const { name , email, password } = req.body;
-  console.log(name, email, 'req.body');
+  const { name , email, password,currency_type } = req.body;
+  console.log(req.body);
   try {
     const queryText =
-      "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *";
-    const res = await pool.query(queryText, [ name,email,password]);
+      "INSERT INTO users (name, email, password, currency_type) VALUES ($1, $2, $3, $4) RETURNING *";
+    const res = await pool.query(queryText, [ name,email,password,currency_type]);
+    console.log("succss");
     response.send(res.rows[0]);
   } catch (error) {
     console.error(error);
@@ -57,57 +59,24 @@ export const createUser =  async (req, response) => {
 };
 
 export const getOneUser = async (req, res) => {
-
     const { email , password } = req.body;
-    console.log("wwwwwww ",req.body);
     try {
         const queryText = `SELECT * FROM users WHERE email='${email}' AND password = '${password}'`;
         const response = await pool.query(queryText);
-       
-        console.log("hariu",response)
-       console.log("rows urt",response.rows.length);
-
       if (response.rows.length !== 0 ) {
           res.send("success");
        }
-      //  if(response.rows.length !== 0) throw error
-      //  res.send("success");
- 
-       // console.log("success");
-
       } catch (error) {
-       // console.error("Wrong username & password");
         res.status(400).send('Wrong username and password');
       }
 };
 
-export const login = async (req, res) => {
-  const { email, password } = req.body;
-  try {
-      const queryText =
-   `SELECT * FROM users WHERE name='${email}' AND email='${password}'`;
-      const response = await pool.query(queryText);
-      console.log(response)
-      if(response.rows.length === 0) throw error
-      res.send(response.rows);
-      console.log("success");
-
-    } catch (error) {
-      console.error("Wrong username & password");
-      res.status(400).send('Wrong username and password');
-    }
-};
-
-
-
-  export const deleteUser = async (req,response)=> {
+export const deleteUser = async (req,response)=> {
     const { name,email } = req.body;
-   // console.log(req.body);
     try {
       const queryText =
      `DELETE FROM users WHERE name = '${name}' AND email = '${email}'`;
      // `DELETE FROM users WHERE name = '(${name}' AND email = '${email}') OR '${id}'`;
-    // `DELETE FROM users WHERE (name = $1 AND email = $2`;
         await pool.query(queryText);
         response.send("Success");
     } catch (error) {
