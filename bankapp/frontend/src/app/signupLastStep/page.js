@@ -11,7 +11,7 @@ export default function Signupcurrency() {
   let data = JSON.parse(localStorage.getItem("data"));
   const handler = async () => {
        let res = await axios.post(defaultUrl, {name: data.name,email: data.email, password: data.password, currency_type: data.currency});
-      router.push("/dashboard");
+      router.push("/login");
   };
   return (
     <div className=" flex w-screen h-screen items-center gap-[141px] flex-col">

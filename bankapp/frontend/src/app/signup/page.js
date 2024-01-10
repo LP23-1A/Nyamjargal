@@ -4,6 +4,10 @@ import Geld from "@/utilities/Geld";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useRef, useState } from "react";
+import { Formik } from "formik";
+import * as yup from "yup";
+
+
 
 const defaultUrl = "http://localhost:8000/users";
 
@@ -44,22 +48,25 @@ export default function Signup() {
             <input
               type="text"
               placeholder="Name"
+              name="name"
               onChange={(event) => setname(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
             <input
               type="text"
               placeholder="Email"
+              name = "email"
               onChange={(event) => setemail(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
             <input
               type="password"
               placeholder="Password"
+              name = "password"
               onChange={(event) => setpassword(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
-            <input type="password" placeholder="Re-password" className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>
+            <input type="password" placeholder="Re-password" name="confirmpassword"  className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>
             <button className="btn btn-primary" onClick={handler}> Sign up </button>
           </div>
           <div className="flex">

@@ -40,8 +40,8 @@ export default function Signupcurrency() {
             <h2 className=" text-2xl font-bold">Select base currency</h2>
           </div>
           <div className=" flex flex-col gap-3">
-            <select value={currency} class="select select-bordered w-full bg-[#F3F4F6]"   onChange={(event) => setcurrency(event.target.value)}>
-              <option value="MNT" selected>MNT - Mongolian Tugrik</option>
+            <select value={currency} className="select select-bordered w-full bg-[#F3F4F6]"   onChange={(event) => setcurrency(event.target.value)}>
+              <option value="MNT">MNT - Mongolian Tugrik</option>
               <option value = "USD">USD - United States Dollar</option>
             </select>
             <p className=" text-xs text-[#475569]">
