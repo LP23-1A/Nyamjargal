@@ -4,13 +4,13 @@ import Geld from "@/utilities/Geld";
 import Check from "@/utilities/Check";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-const defaultUrl = "http://localhost:8000/users";
+const api = "http://localhost:8000/users";
 
 export default function Signupcurrency() {
   const router = useRouter();
   let data = JSON.parse(localStorage.getItem("data"));
   const handler = async () => {
-       let res = await axios.post(defaultUrl, {name: data.name,email: data.email, password: data.password, currency_type: data.currency});
+       let res = await axios.post(api, {name: data.name,email: data.email, password: data.password, currency_type: data.currency});
       router.push("/login");
   };
   return (

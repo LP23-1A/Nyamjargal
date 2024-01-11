@@ -8,7 +8,7 @@ export default function Navbar(){
     const router = useRouter();
 
     return (
-        <div className="flex justify-between items-center px-[120px] py-[16px]">
+        <div className="flex  justify-between px-[120px] py-[16px]">
             <div className="flex gap-6 items-center">
                 <Logo/>
                 <p className=" cursor-pointer font-semibold" onClick={()=>router.push('/dashboard')}>Dashboard </p>

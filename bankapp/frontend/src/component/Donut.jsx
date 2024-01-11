@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect } from 'react';
 import { Tooltip, Title, ArcElement, Legend, Chart as ChartJs } from 'chart.js';
 import { Doughnut } from "react-chartjs-2";
@@ -37,7 +37,7 @@ function Donut(){
   },[])
     return(
         <div>
-            <Doughnut data={data}  style={{ width: "156px", height: "156px" }}/>
+            <Doughnut data={data}  style={{ width: "166px", height: "166px" }}/>
         </div>
     );
 }
