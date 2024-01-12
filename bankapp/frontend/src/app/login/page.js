@@ -11,7 +11,7 @@ export default function Login() {
     const router = useRouter();
     const [email,  setemail] = useState('');
     const [password,  setpassword] = useState('');
-
+   // console.log("dataaaaa", email,password);
     const handler = async () => {
       let res = await axios.post(api, {  email , password });
       if (res.data === "success"){

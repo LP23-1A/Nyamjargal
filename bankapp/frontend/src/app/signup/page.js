@@ -12,12 +12,14 @@ import * as yup from "yup";
 const defaultUrl = "http://localhost:8000/users";
 
 export default function Signup() {
+  //const data = useRef()
+
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const currency = "MNT";
   //const [data, setData ] = useState([]);
-
+ // console.log(data)
   const handler = async () => {
     const input = {
       name,
@@ -50,20 +52,23 @@ export default function Signup() {
               placeholder="Name"
               name="name"
               onChange={(event) => setname(event.target.value)}
+            //  onChange={(event) => data.current = {...data.current, name: event.target.value}}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
             <input
               type="text"
               placeholder="Email"
               name = "email"
-              onChange={(event) => setemail(event.target.value)}
+            //  onChange={(event) => data.current = {...data.current, email: event.target.value}}
+               onChange={(event) => setemail(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
             <input
               type="password"
               placeholder="Password"
               name = "password"
-              onChange={(event) => setpassword(event.target.value)}
+             // onChange={(event) => data.current = {...data.current, password: event.target.value}}
+             onChange={(event) => setpassword(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
             />
             <input type="password" placeholder="Re-password" name="confirmpassword"  className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>

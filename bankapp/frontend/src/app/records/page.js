@@ -5,6 +5,7 @@ import GreenArrow from "@/utilities/GreenArrow";
 import { House, ForkKnife } from "@/utilities/Categoryicons";
 import Button from "@/component/Button";
 import Leadingicon from "@/utilities/Leadingicon";
+import Categorylist from "@/component/Categorylist";
 
 export default function Dashboard() {
   return (
@@ -42,8 +43,21 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+
+            <div>
+            <div className=" flex justify-between ">
+              <p className=" font-semibold text-[#1F2937]">Category</p>
+              <div className=" px-3 opacity-20 cursor-pointer">Clear</div>
+            </div>
+            <div>
+
+            </div>
           </div>
-          <div></div>
+
+          </div>
+
+         
+
         </div>
       </div>
     </div>
