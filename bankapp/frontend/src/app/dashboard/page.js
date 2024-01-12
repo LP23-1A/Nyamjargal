@@ -1,3 +1,4 @@
+"use client";
 import Logo from "@/utilities/Logowhite";
 import Geld from "@/utilities/Geldwhite";
 import Navbar from "@/component/Navbar";
@@ -6,10 +7,9 @@ import { GreenCircle, BlueCircle } from "@/utilities/SmallCircle";
 import GreenArrow from "@/utilities/GreenArrow";
 import { House, ForkKnife } from "@/utilities/Categoryicons";
 import Circle from "@/utilities/Circle";
+import Doughnut from "@/component/Donut";
 
-import { Donut } from "@/component/Donut";
-
-export default function Dashboard() {
+export default function dashboard() {
   return (
     <div className=" flex justify-center">
       <div className=" flex flex-col">
@@ -94,7 +94,7 @@ export default function Dashboard() {
                 <p>Jun 1 - Nov 30</p>
               </div>
               <div className=" flex flex-col px-6 py-8">
-                <Donut />
+                  <Doughnut/>
               </div>
             </div>
           </div>

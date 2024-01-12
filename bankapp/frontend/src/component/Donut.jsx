@@ -1,44 +1,44 @@
-"use client";
-import { useEffect } from 'react';
-import { Tooltip, Title, ArcElement, Legend, Chart as ChartJs } from 'chart.js';
-import { Doughnut } from "react-chartjs-2";
+import { Chart as Chartjs, Tooltip, Legend, Title, ArcElement } from "chart.js";
+import { useState } from "react";
+Chartjs.register(Tooltip, Legend, Title, ArcElement);
+import { Pie } from "react-chartjs-2";
 
-
-ChartJs.register (
-    Tooltip, Title, ArcElement, Legend
-);
-
-
-const  data = {
-    labels: [
-      'Bills',
-      'Food',
-      'Shopping',
-      'Insurance',
-      'Clothing'
+export default function Doughnut() {
+  const data = {
+    datasets: [
+      {
+        type: "doughnut",
+        width: 100,
+        data: [10, 20, 20, 30, 10],
+        backgroundColor: ["red", "blue", "orange", "aqua", "pink"],
+      },
     ],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [15.5, 15.5, 15.5,15.5,15.5],
-      backgroundColor: [
-        'rgb(28, 100, 242)',
-        'rgb(231, 70, 148)',
-        'rgb(242, 144, 28)',
-        'rgb(22,189,202)',
-        'rgb(253,186,140)'
-      ],
-      hoverOffset: 5
-    }]
+
+    labels: ["Bills", "Food", "Shopping", "Insuranse", "Clothing"],
   };
+  const [chartOptions, setChartOptions] = useState({
+    cutoutPersentage: 20,
+    plugins: {
+      legend: {
+        display: true,
+        position: "right",
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+    elements: {
+      arc: {
+        borderWidth: 0, // Hide the border of the arcs
+      },
+    },
+  });
 
-function Donut(){
-  useEffect(()=>{
-
-  },[])
-    return(
-        <div>
-            <Doughnut data={data}  style={{ width: "166px", height: "166px" }}/>
-        </div>
-    );
+  return (
+    <div className="w-[300px] flex">
+      <Pie data={data} options={chartOptions} className="flex" />
+    </div>
+  );
 }
-export {Donut};
