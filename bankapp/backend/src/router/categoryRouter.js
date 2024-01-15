@@ -1,13 +1,10 @@
 import express from 'express';
 import {
-    createTable,
     addCategory,
     getCategory
 } from '../controller/category.js';
 
 const category = express.Router();
 
-category.route('/').post(createTable);
-category.route('/addData').post(addCategory);
-category.route('/getData').get(getCategory);
+category.route('/').post(addCategory).get(getCategory);
 export {category};

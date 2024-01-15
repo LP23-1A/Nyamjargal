@@ -1,22 +1,22 @@
-import { nanoid } from "nanoid";
-import bp from "body-parser"
+import cors from 'cors';
 import dotenv from "dotenv"
 import postgres from "postgres"
 import  express, { response }  from "express";
-import {pool} from "./db.js";
-import {user} from "./router/userRouter.js"
-import { category } from "./router/categoryRouter.js";
-import { uuid } from "uuidv4";
-import cors from 'cors';
+import {user} from "./src/router/userRouter.js"
+import {table} from "./src/router/tablesRouter.js"
+import {transaction} from "./src/router/transactionRouter.js"
+import { category } from "./src/router/categoryRouter.js";
 
-//const id = uuid();
 dotenv.config();
 const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(express.json());
 app.use(cors({origin : "*"}));
-app.use("/users", user);
+
+app.use("/table", table);
+app.use("/user", user);
 app.use("/category", category);
+app.use("/transaction", transaction);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}.`);

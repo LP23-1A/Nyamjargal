@@ -1,13 +1,12 @@
 import Navbar from "@/component/Navbar";
-import Cashlogo from "@/utilities/Cashlogo.jsx";
-import { GreenCircle, BlueCircle } from "@/utilities/SmallCircle";
-import GreenArrow from "@/utilities/GreenArrow";
-import { House, ForkKnife } from "@/utilities/Categoryicons";
 import Button from "@/component/Button";
-import Leadingicon from "@/utilities/Leadingicon";
 import Categorylist from "@/component/Categorylist";
 import Todaydata from "@/component/Todaydata";
 import Yesterday from "@/component/Yesterdaydata";
+import Leadingicon from "@/utilities/Leadingicon";
+
+
+
 import {
   Chevronleft,
   Chevronright,
@@ -17,6 +16,7 @@ import {
 export default function Dashboard() {
   return (
     <div className="flex justify-center">
+      
       <div className=" flex flex-col">
         <Navbar />
         <div className="flex  gap-6 py-6 px-[120px] w-[1440px] bg-[#F3F4F6]">

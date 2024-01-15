@@ -7,7 +7,7 @@ export default function Blueline() {
       viewBox="0 0 92 4"
       fill="none"
     >
-      <path d="M0 2L92 2.00001" stroke="#0166FF" stroke-width="4" />
+      <path d="M0 2L92 2.00001" stroke="#0166FF" strokeWidth="4" />
     </svg>
   );
 }

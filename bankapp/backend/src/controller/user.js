@@ -1,36 +1,7 @@
-import {pool} from "../db.js";
+import { pool } from "../db.js";
 import { uuid } from "uuidv4";
 
-export const createTable = async (_, res) => {
-  try {
-    const tableQueryText = `
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      email VARCHAR(255) UNIQUE NOT NULL,
-      password TEXT,
-      avatar_img bytea,
-      createAt TIMESTAMP,
-      updateAt TIMESTAMP,
-      currency_type  TEXT DEFAULT 'MNT'
-    )`;
-    await pool.query(tableQueryText);
-    res.send("Table Created");
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export const deletetable = async (req,response)=> {
-  try {
-    const queryText =
-   `DROP TABLE IF EXISTS users;`;
-      await pool.query(queryText);
-      response.send("deleted users table");
-  } catch (error) {
-    console.log(error);
-  }
-};
+//const id = uuid();
 
 export const createUser =  async (req, response) => {
   const { name , email, password,currency_type } = req.body;

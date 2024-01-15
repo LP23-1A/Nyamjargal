@@ -1,22 +1,6 @@
 import { pool } from "../db.js";
 
-export const createTable = async (_, res) => {
-  try {
-    const tableQueryText = `
-      CREATE TABLE IF NOT EXISTS category (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(100),
-        description TEXT,
-        createAt TIMESTAMP,
-        updateAt TIMESTAMP,
-        category_image text
-      )`;
-    await pool.query(tableQueryText);
-    res.send("Table Created");
-  } catch (error) {
-    console.error(error);
-  }
-};
+
 
 export const addCategory =  async (req, response) => {
     const { name, description, createAt, updateAt, category_image } = req.body;

@@ -1,5 +1,4 @@
-export default function Grayline
-() {
+export default function Grayline() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +7,7 @@ export default function Grayline
       viewBox="0 0 92 4"
       fill="none"
     >
-      <path d="M0 2L92 2.00001" stroke="#E5E7EB" stroke-width="4" />
+      <path d="M0 2L92 2.00001" stroke="#E5E7EB" strokeWidth="4" />
     </svg>
   );
 }
