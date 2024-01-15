@@ -30,11 +30,6 @@ export default function Categorylist() {
           );
         })}
       </div>
-
-      <div className="flex gap-2 cursor-pointer">
-        <Plusblue />
-        <span> Add Category</span>
-      </div>
     </div>
   );
 }

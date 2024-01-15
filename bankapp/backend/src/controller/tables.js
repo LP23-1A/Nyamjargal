@@ -36,7 +36,7 @@ export const createCategoryTable = async (_, res) => {
     const tableQueryText = `
         CREATE TABLE IF NOT EXISTS category (
           id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
-          name VARCHAR(100),
+          name VARCHAR(100) NOT NULL,
           description TEXT,
           createAt TIMESTAMP DEFAULT NOW(),
           updateAt TIMESTAMP DEFAULT NOW(),

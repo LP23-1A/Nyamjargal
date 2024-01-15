@@ -1,15 +1,22 @@
+"use client"
+import { useState } from "react";
 import Navbar from "@/component/Navbar";
 import Button from "@/component/Button";
 import Categorylist from "@/component/Categorylist";
 import Todaydata from "@/component/Todaydata";
 import Yesterday from "@/component/Yesterdaydata";
-import {Pluswhite, Backbutton, Forwardbutton, Downarrow} from "@/utilities/Allsmallicons"
+import AddCategoryModal from "@/component/AddCategoryModal";
+import {Pluswhite, Backbutton, Forwardbutton, Downarrow, Plusblue} from "@/utilities/Allsmallicons"
 
 export default function Dashboard() {
+  const [openModal, setOpenModal] = useState(false);
+  const toggleModal = () => {
+
+  }
   return (
     <div className="flex justify-center">
       
-      <div className=" flex flex-col">
+      <div className="flex flex-col fixed -z-20">
         <Navbar />
         <div className="flex  gap-6 py-6 px-[120px] w-[1440px] bg-[#F3F4F6]">
           <div className=" inline-flex px-4 py-6 gap-6 flex-col  w-[282px] bg-[#F9FAFB] rounded-xl">
@@ -47,8 +54,12 @@ export default function Dashboard() {
                 <p className=" font-semibold text-[#1F2937]">Category</p>
                 <div className=" px-3 opacity-20 cursor-pointer">Clear</div>
               </div>
-              <div>
+              <div className=" flex flex-col gap-2">
                 <Categorylist />
+                <div className="flex gap-2 cursor-pointer">
+                    <Plusblue />
+                    <button className=" cursor-pointer" onClick={()=>setOpenModal(true)}> Add Category</button>
+                </div>
               </div>
               <div className=" w-full">
                 <p className=" font-semibold">Amount Range</p>
@@ -109,6 +120,7 @@ export default function Dashboard() {
 
         </div>
       </div>
+      <AddCategoryModal open = {openModal} onClose={()=> setOpenModal(false)}/>
     </div>
   );
 }
