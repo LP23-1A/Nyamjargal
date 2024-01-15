@@ -7,15 +7,16 @@ import Categorylist from "@/component/Categorylist";
 import Todaydata from "@/component/Todaydata";
 import Yesterday from "@/component/Yesterdaydata";
 import AddCategoryModal from "@/component/AddCategoryModal";
+import AddRecordModal from "@/component/AddRecordModal";
 import {Pluswhite, Backbutton, Forwardbutton, Downarrow, Plusblue} from "@/utilities/Allsmallicons"
 
 const api = "http://localhost:8000/category";
 
 export default function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
+  const [openRecordModal, setRecordModal] = useState(false);
   const handler = async () => {
     let res = await axios.delete(api);
-
   };
  
   return (
@@ -27,7 +28,7 @@ export default function Dashboard() {
           <div className=" inline-flex px-4 py-6 gap-6 flex-col  w-[282px] bg-[#F9FAFB] rounded-xl">
             <div className="flex flex-col gap-6">
               <h1 className=" font-semibold text-2xl">Records</h1>
-              <Button title="Add" icon={<Pluswhite />} bg = "#0166FF"/>
+              <div onClick={()=>setRecordModal(true)}>     <Button title="Add" icon={<Pluswhite />} bg = "#0166FF"/></div>  
             </div>
             <input
               type="text"
@@ -126,6 +127,7 @@ export default function Dashboard() {
         </div>
       </div>
       <AddCategoryModal open = {openModal} onClose={()=> setOpenModal(false)}/>
+      <AddRecordModal open={openRecordModal} onClose={()=>setRecordModal(false)}/>
     </div>
   );
 }

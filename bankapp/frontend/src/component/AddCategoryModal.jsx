@@ -11,6 +11,7 @@ export default function AddCategoryModal({ open, onClose }) {
   const [categoryName, setCategoryName] = useState("");
   const handler = async () => {
     let res = await axios.post(api, { categoryName });
+   
   };
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/component/Navbar";
-import Doughnut from "@/component/Donut";
+import Doughnut from "@/component/DonutChart";
+import BarChart, {Barchart} from "@/component/BarChart"
 import {Balancelogo, Balancecircle, Geldwhite, Logowhite, GreenCircle, BlueCircle, Greenarrow} from "@/utilities/Allsmallicons.jsx"
 import { House, ForkKnife } from "@/utilities/Categoryicons";
 
@@ -83,7 +84,9 @@ export default function dashboard() {
               <div className=" flex gap-2 px-6 py-4 items-center border-b border-[#E2E8F0] font-semibold">
                 <p>Income - Expense</p>
               </div>
-              <div className=" flex flex-col px-6 py-8"></div>
+              <div className=" flex flex-col px-6 py-8">
+                  <BarChart/>
+              </div>
             </div>
             <div className=" flex flex-col w-2/4 h-[226px] rounded-[18px] bg-white">
               <div className=" flex gap-2 px-6 py-4 items-center border-b border-[#E2E8F0] justify-between font-semibold">
