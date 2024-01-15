@@ -1,13 +1,10 @@
 "use client";
-import Logo from "@/utilities/Logowhite";
-import Geld from "@/utilities/Geldwhite";
 import Navbar from "@/component/Navbar";
-import Cashlogo from "@/utilities/Cashlogo.jsx";
-import { GreenCircle, BlueCircle } from "@/utilities/SmallCircle";
-import GreenArrow from "@/utilities/GreenArrow";
-import { House, ForkKnife } from "@/utilities/Categoryicons";
-import Circle from "@/utilities/Circle";
 import Doughnut from "@/component/Donut";
+import {Balancelogo, Balancecircle, Geldwhite, Logowhite, GreenCircle, BlueCircle, Greenarrow} from "@/utilities/Allsmallicons.jsx"
+import { House, ForkKnife } from "@/utilities/Categoryicons";
+
+
 
 export default function dashboard() {
   return (
@@ -27,16 +24,16 @@ export default function dashboard() {
               }}
             >
               <div className="items-center gap-2 p-[4.7px] inline-flex">
-                <Logo />
-                <Geld />
+                <Logowhite />
+                <Geldwhite />
               </div>
               <div className=" flex justify-between items-center relative">
                 <div className="inline-flex flex-col text-white">
                   <p className=" opacity-50">Cash</p>{" "}
                   <span className=" text-2xl">10,000,000</span>
                 </div>
-                 <Cashlogo />
-                 <div className=" absolute"><Circle/></div>
+                 <Balancelogo />
+                 <div className=" absolute"><Balancecircle/></div>
               </div>
             </div>
 
@@ -54,7 +51,7 @@ export default function dashboard() {
                   <p className=" text-[18px] leading-7">Your Income Amount</p>
                 </div>
                 <div className="flex gap-2">
-                  <GreenArrow />
+                  <Greenarrow />
                   <p className=" text-[18px] leading-7">32% from last month</p>
                 </div>
               </div>
@@ -74,7 +71,7 @@ export default function dashboard() {
                   <p className=" text-[18px] leading-7">Your Income Amount</p>
                 </div>
                 <div className="flex gap-2">
-                  <GreenArrow />
+                  <Greenarrow />
                   <p className=" text-[18px] leading-7">32% from last month</p>
                 </div>
               </div>

@@ -1,5 +1,5 @@
-import Logo from "@/utilities/Logo";
-import Geld from "@/utilities/Geld";
+import {Logo, Geld} from "@/utilities/Allsmallicons"
+
 export default function Signup() {
   return (
     <div className=" flex w-screen h-screen">

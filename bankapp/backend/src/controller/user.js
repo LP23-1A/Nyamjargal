@@ -29,23 +29,17 @@ export const createUser =  async (req, response) => {
     }
 };
 
-export const getOneUser = async (req, res) => {
-
-    const { email , password } = req.body;
-    console.log("hvselt ", req.body);
-    try {
-        const queryText = `SELECT * FROM users WHERE email='${email}' AND password = '${password}'`;
-        const response = await pool.query(queryText);
-        console.log(response);
-      if (response.rows.length !== 0 ) {
-          res.send("success");
-       } else {
-          throw error
-       }
-      } catch (error) {
-        res.status(400).send('Wrong username and password');
-      }
+export const updateUser =  async (req,response)=>{
+  const { id,name, email } = req.body;
+  try {
+    const queryText = `UPDATE  users SET name = '${name}', email = '${email}' WHERE id = '${id}'`;
+    await pool.query(queryText);
+    response.send("Updated");
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 
 export const deleteUser = async (req,response)=> {
     const { name,email } = req.body;
@@ -60,15 +54,3 @@ export const deleteUser = async (req,response)=> {
     }
   };
 
-  export const updateUser =  async (req,response)=>{
-    const { id,name, email } = req.body;
-    try {
-      const queryText = `UPDATE  users SET name = '${name}', email = '${email}' WHERE id = '${id}'`;
-      await pool.query(queryText);
-      response.send("Updated");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  

@@ -3,15 +3,7 @@ import Button from "@/component/Button";
 import Categorylist from "@/component/Categorylist";
 import Todaydata from "@/component/Todaydata";
 import Yesterday from "@/component/Yesterdaydata";
-import Leadingicon from "@/utilities/Leadingicon";
-
-
-
-import {
-  Chevronleft,
-  Chevronright,
-  Downarrow,
-} from "@/utilities/Smallicons.jsx";
+import {Pluswhite, Backbutton, Forwardbutton, Downarrow} from "@/utilities/Allsmallicons"
 
 export default function Dashboard() {
   return (
@@ -23,7 +15,7 @@ export default function Dashboard() {
           <div className=" inline-flex px-4 py-6 gap-6 flex-col  w-[282px] bg-[#F9FAFB] rounded-xl">
             <div className="flex flex-col gap-6">
               <h1 className=" font-semibold text-2xl">Records</h1>
-              <Button title="Add" icon={<Leadingicon />} />
+              <Button title="Add" icon={<Pluswhite />} />
             </div>
             <input
               type="text"
@@ -88,9 +80,9 @@ export default function Dashboard() {
 
             <div className=" flex justify-between">
               <div className="flex gap-3 items-center">
-                <Chevronleft />
+                <Backbutton />
                 <p>Last 30 Days</p>
-                <Chevronright />
+                <Forwardbutton />
               </div>
               <div>
                 <div className="">

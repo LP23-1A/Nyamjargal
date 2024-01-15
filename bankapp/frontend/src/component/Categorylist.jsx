@@ -1,4 +1,5 @@
-import { Eye, Arrow, Plus } from "@/utilities/Smallicons.jsx";
+import {Eye,Rightarrow,Plusblue} from "@/utilities/Allsmallicons"
+
 
 export default function Categorylist() {
   const categoryData = [
@@ -24,14 +25,14 @@ export default function Categorylist() {
                 <Eye />
                 <p>{el.title}</p>
               </div>
-              <Arrow />
+              <Rightarrow />
             </div>
           );
         })}
       </div>
 
       <div className="flex gap-2 cursor-pointer">
-        <Plus />
+        <Plusblue />
         <span> Add Category</span>
       </div>
     </div>

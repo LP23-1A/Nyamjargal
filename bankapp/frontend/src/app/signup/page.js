@@ -1,15 +1,11 @@
 "use client";
-import Logo from "@/utilities/Logo";
-import Geld from "@/utilities/Geld";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { useRef, useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { Geld, Logo } from "@/utilities/Allsmallicons";
 
 
-
-const defaultUrl = "http://localhost:8000/users";
 
 export default function Signup() {
   //const data = useRef()

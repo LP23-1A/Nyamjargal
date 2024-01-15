@@ -1,17 +1,28 @@
 import { pool } from "../db.js";
 
-export const createUserTable = async (_, res) => {
+export const uuidExtension = async (_, res) => {
+  try {
+    const extensionQuery = `
+    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`;
+    await pool.query(extensionQuery);
+    res.send("Extension installed");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const createUserTable = async (req, res) => {
   try {
     const tableQueryText = `
       CREATE TABLE IF NOT EXISTS users (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) UNIQUE NOT NULL,
+        id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
+        email VARCHAR(50) UNIQUE NOT NULL,
+        name VARCHAR(50) NOT NULL,
         password TEXT,
         avatar_img bytea,
-        createAt TIMESTAMP,
-        updateAt TIMESTAMP,
-        currency_type  TEXT DEFAULT 'MNT'
+        createdAt TIMESTAMP DEFAULT NOW(),
+        updatedAt TIMESTAMP DEFAULT NOW(),
+        currency_type TEXT DEFAULT 'MNT'
       )`;
     await pool.query(tableQueryText);
     res.send("Users Table Created");
@@ -24,11 +35,11 @@ export const createCategoryTable = async (_, res) => {
   try {
     const tableQueryText = `
         CREATE TABLE IF NOT EXISTS category (
-          id SERIAL PRIMARY KEY,
+          id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
           name VARCHAR(100),
           description TEXT,
-          createAt TIMESTAMP,
-          updateAt TIMESTAMP,
+          createAt TIMESTAMP DEFAULT NOW(),
+          updateAt TIMESTAMP DEFAULT NOW(),
           category_image text
         )`;
     await pool.query(tableQueryText);
@@ -42,15 +53,19 @@ export const createTransactionTable = async (_, res) => {
   try {
     const tableQueryText = `
         CREATE TABLE IF NOT EXISTS transaction (
-          id SERIAL PRIMARY KEY,
-          name VARCHAR(100),
+          id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
+          user_id,
+          name TEXT,
+          amount REAL NOT NULL,
+          transaction_type ENUM("INC", "EXP"),
           description TEXT,
-          createAt TIMESTAMP,
-          updateAt TIMESTAMP,
-          category_image text
+          createdAt TIMESTAMP DEFAULT NOW(),
+          updatedAt TIMESTAMP DEFAULT NOW(),
+          category_id
+
         )`;
     await pool.query(tableQueryText);
-    res.send("Tranasaction Table Created");
+    res.send("Transaction Table Created");
   } catch (error) {
     console.error(error);
   }

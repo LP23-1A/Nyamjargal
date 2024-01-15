@@ -1,5 +1,5 @@
-import Mediumlogo from "@/utilities/Meduimlogo"
-import Geld from "@/utilities/Geld";
+import {Geld, Mediumlogo} from "@/utilities/Allsmallicons"
+
 export default function Loading() {
   return (
     <div className=" flex w-screen h-screen items-center justify-center">

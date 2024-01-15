@@ -1,10 +1,7 @@
 "use client";
-import Logo from "@/utilities/Logo";
-import Geld from "@/utilities/Geld";
-import Money from "@/utilities/Money.jsx";
-import Currency from "@/utilities/Currency";
-import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import {Geld, Logo, Money, Currency} from "@/utilities/Allsmallicons"
 
 export default function Signupcurrency() {
   const router = useRouter();

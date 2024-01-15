@@ -1,17 +1,16 @@
 'use client'
-import Logo from "@/utilities/Logo";
-import Geld from "@/utilities/Geld";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
+import Input from "@/component/Input";
+import {Geld, Logo} from "@/utilities/Allsmallicons"
 
-const api = 'http://localhost:8000/users/login';
+const api = 'http://localhost:8000/login';
 
 export default function Login() {
     const router = useRouter();
     const [email,  setemail] = useState('');
     const [password,  setpassword] = useState('');
-   // console.log("dataaaaa", email,password);
     const handler = async () => {
       let res = await axios.post(api, {  email , password });
       if (res.data === "success"){
@@ -34,6 +33,7 @@ export default function Login() {
         
 
           <div className="flex flex-col gap-4 w-full">
+          {/*  <Input type="text" placeholder = "emailll" getdata = {(event) => (setemail(event.target.value))} />*/}
             <input type="text" placeholder="Email" onChange={(event) => setemail(event.target.value)} className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>
             <input type="password" placeholder="Password" onChange={(event) => setpassword(event.target.value)} className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"/>
             <button className="btn btn-primary" onClick={handler}>Log in</button>

@@ -1,10 +1,10 @@
 "use client";
-import Logo from "@/utilities/Logo";
-import Geld from "@/utilities/Geld";
-import Check from "@/utilities/Check";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-const api = "http://localhost:8000/users";
+import axios from "axios";
+import {Logo, Geld, Check} from "@/utilities/Allsmallicons"
+
+
+const api = "http://localhost:8000/user";
 
 export default function Signupcurrency() {
   const router = useRouter();
