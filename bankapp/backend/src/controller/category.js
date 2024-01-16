@@ -18,14 +18,23 @@ export const addCategory =  async (req, response) => {
   };
 
   export const getCategory = async (req, res) => {
-    const { name } = req.body;
     try {
-        const queryText =
-     `SELECT * FROM category WHERE name='${name}'`;
+        const queryText =`SELECT name FROM category`;
         const response = await pool.query(queryText);
+       // console.log(response.rows);
         res.send(response.rows);
       } catch (error) {
         console.error(error);
     }
 };
 
+export const deleteCategory = async (req, res) => {
+  try {
+      const queryText =`DELETE FROM category`;
+      const response = await pool.query(queryText);
+     
+      res.send(response.rows);
+    } catch (error) {
+      console.error(error);
+  }
+};

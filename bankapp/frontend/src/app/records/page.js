@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react";
+import axios from "axios";
 import Navbar from "@/component/Navbar";
 import Button from "@/component/Button";
 import Categorylist from "@/component/Categorylist";
@@ -8,11 +9,15 @@ import Yesterday from "@/component/Yesterdaydata";
 import AddCategoryModal from "@/component/AddCategoryModal";
 import {Pluswhite, Backbutton, Forwardbutton, Downarrow, Plusblue} from "@/utilities/Allsmallicons"
 
+const api = "http://localhost:8000/category";
+
 export default function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
-  const toggleModal = () => {
+  const handler = async () => {
+    let res = await axios.delete(api);
 
-  }
+  };
+ 
   return (
     <div className="flex justify-center">
       
@@ -22,7 +27,7 @@ export default function Dashboard() {
           <div className=" inline-flex px-4 py-6 gap-6 flex-col  w-[282px] bg-[#F9FAFB] rounded-xl">
             <div className="flex flex-col gap-6">
               <h1 className=" font-semibold text-2xl">Records</h1>
-              <Button title="Add" icon={<Pluswhite />} />
+              <Button title="Add" icon={<Pluswhite />} bg = "#0166FF"/>
             </div>
             <input
               type="text"
@@ -52,7 +57,7 @@ export default function Dashboard() {
             <div className=" flex flex-col gap-4">
               <div className=" flex justify-between ">
                 <p className=" font-semibold text-[#1F2937]">Category</p>
-                <div className=" px-3 opacity-20 cursor-pointer">Clear</div>
+                <div className=" px-3 opacity-20 cursor-pointer" onClick={handler}>Clear</div>
               </div>
               <div className=" flex flex-col gap-2">
                 <Categorylist />
