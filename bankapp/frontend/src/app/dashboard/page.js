@@ -88,7 +88,7 @@ export default function dashboard() {
                   <BarChart/>
               </div>
             </div>
-            <div className=" flex flex-col w-2/4 h-[226px] rounded-[18px] bg-white">
+            <div className=" flex flex-col w-2/4  rounded-[18px] bg-white">
               <div className=" flex gap-2 px-6 py-4 items-center border-b border-[#E2E8F0] justify-between font-semibold">
                 <p>Income - Expense</p>
                 <p>Jun 1 - Nov 30</p>

@@ -1,34 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from "chart.js";
 import {Bills, Food, Shopping, Insurance, Clothing} from "@/utilities/IncomeCircle.jsx"
-import {
-  Chart as ChartJS,
-  ArcElement,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
 
-ChartJS.register(
-  ArcElement,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register( ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend );
 
 const PieChart = () => {
   const [chartData, setChartData] = useState({
     labels: ["Bills", "Food", "Shopping", "Insurence", "Clothing"],
     datasets: [
       {
-        data: [100000, 500000, 800000, 400000, 200000],
+        data: [200000, 500000, 800000, 400000, 100000],
         backgroundColor: [
           "rgba(22, 189, 202, 1)",
           "rgba(28, 100, 242, 1)",
@@ -36,14 +19,6 @@ const PieChart = () => {
           "rgba(242, 144, 28, 1)",
           "rgba(253, 186, 140, 1)",
         ],
-        borderColor: [
-          "rgba(22, 189, 202, 1)",
-          "rgba(28, 100, 242, 1)",
-          "rgba(231, 70, 148, 1)",
-          "rgba(242, 144, 28, 1)",
-          "rgba(253, 186, 140, 1)",
-        ],
-        borderWidth: 1,
       },
     ],
   });
@@ -88,21 +63,19 @@ const PieChart = () => {
   }));
 
   return (
-    <div className="flex gap-5 items-center">
-      <div className="relative p-2" style={{ width: "220px", height: "220px" }}>
+    <div className="flex gap-[47px] items-center">
+      <div className=" w-[186px] h-[186px]">
         <Doughnut data={chartData} options={chartOptions} />
       </div>
       <div className="table-container">
         <table className="table-auto">
-          <tbody className="">
+          <tbody>
             {tableData.map((data, index) => (
               <tr key={index}>
-                <td className="px-3 py-2">{data.symbol}</td>
-                <td className=" px-3 py-2" style={{ color: data.color }}>
-                  {data.label}
-                </td>
-                <td className="px-3 py-2">{data.value}</td>
-                <td className="px-3 py-2">{data.percentage}%</td>
+                <td>{data.symbol}</td>
+                <td className=" pl-2"> {data.label} </td>
+                <td className="px-8">{data.value}</td>
+                <td className="px-3 py-3">{data.percentage}%</td>
               </tr>
             ))}
           </tbody>

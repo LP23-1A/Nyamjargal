@@ -1,77 +1,32 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend,} from "chart.js";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend );
 
 const BarChart = () => {
   const [chartData, setChartData] = useState({
-    labels: ["jul", "jul", "jul", "jul", "jul", "jul", "jul"],
+    labels: ["Jul", "Jul", "Jul", "Jul", "Jul", "Jul", "Jul"],
     datasets: [
       {
-        label: false,
+        label: true,
         data: [3000000, 3000000, 3000000, 3000000, 3000000, 3000000, 3000000],
-        borderColor: "rgb(106, 90, 205)",
-        backgroundColor: "rgb(106, 90, 205)",
+        backgroundColor: "rgb(132, 204, 22)",
       },
       {
         label: false,
-        data: [2100000, 2100000, 2100000, 2100000, 2100000, 2100000, 2100000],
-        borderColor: "rgba(255, 99, 71, 0.6)",
-        backgroundColor: "rgba(255, 99, 71, 0.6)",
+        data: [2200000, 2200000, 2200000, 2200000, 2200000, 2200000, 2200000],
+        backgroundColor: "rgb(249, 115, 22)",
       },
     ],
   });
 
-  const [chartOptions, setChartOptions] = useState({
-    plugins: {
-      tooltip: {
-        enabled: false,
-      },
-      legend: {
-        display: false,
-        position: "right",
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-    elements: {
-      arc: {
-        borderWidth: 0,
-      },
-    },
-  });
-
   return (
-    <>
-      <div className="relative p-1 bg-white">
-        <Bar
-          data={chartData}
-          options={chartOptions}
-          width={"588px"}
-          height={"226px"}
-        />
+      <div>
+        <Bar data={chartData}  width={"590px"} height={"226px"} />
       </div>
-    </>
   );
 };
 
