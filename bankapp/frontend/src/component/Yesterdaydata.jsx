@@ -28,11 +28,11 @@ export default function Yesterday() {
     },
   ];
   return (
-    <div className="flex flex-col gap-3">
+    <div  className="flex flex-col gap-3">
       <p className=" font-semibold">Yesterday</p>
-      {yesterdaydata.map((el) => {
+      {yesterdaydata.map((el , idc) => {
         return (
-          <div className="flex justify-between border bg-white rounded-xl items-center px-6 py-3">
+          <div    key={idc + el.time} className="flex justify-between border bg-white rounded-xl items-center px-6 py-3">
             <div className="flex gap-4 items-center">
               <input
                 type="checkbox"

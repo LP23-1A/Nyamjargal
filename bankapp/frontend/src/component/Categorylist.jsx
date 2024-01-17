@@ -17,25 +17,25 @@ export default function Categorylist() {
   }, []);
 
   const categoryData = [
-    { title: "Food and Drinks" },
-    { title: "Shopping" },
-    { title: "Housing" },
-    { title: "Transportation" },
-    { title: "Vehicle" },
-    { title: "Life & Entertaiment" },
-    { title: "Communication, PC" },
-    { title: "Financial expenses" },
-    { title: "Investments" },
-    { title: "Income" },
-    { title: "Others" },
+    { name: "Food and Drinks" },
+    { name: "Shopping" },
+    { name: "Housing" },
+    { name: "Transportation" },
+    { name: "Vehicle" },
+    { name: "Life & Entertaiment" },
+    { name: "Communication, PC" },
+    { name: "Financial expenses" },
+    { name: "Investments" },
+    { name: "Income" },
+    { name: "Others" },
   ];
   return (
     <div className=" flex flex-col gap-2">
       <div className="flex flex-col gap-2">
         {categoryName &&
-          categoryName.map((el) => {
+          categoryName.map((el, idw) => {
             return (
-              <div className="flex justify-between items-center">
+              <div    key={idw + el.name} className="flex justify-between items-center">
                 <div className="flex gap-2 items-center">
                   <Eye />
                   <p>{el.name}</p>

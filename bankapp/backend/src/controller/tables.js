@@ -52,17 +52,16 @@ export const createCategoryTable = async (_, res) => {
 export const createTransactionTable = async (_, res) => {
   try {
     const tableQueryText = `
-        CREATE TABLE IF NOT EXISTS transaction (
+        CREATE TABLE IF NOT EXISTS transactions (
           id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
-          user_id,
+          user_id uuid references users(id),
           name TEXT,
           amount REAL NOT NULL,
-          transaction_type ENUM("INC", "EXP"),
+          transaction_type VARCHAR(3) CHECK (transaction_type IN ('INC', 'EXP')),
           description TEXT,
           createdAt TIMESTAMP DEFAULT NOW(),
           updatedAt TIMESTAMP DEFAULT NOW(),
-          category_id
-
+          category_id uuid references category(id)
         )`;
     await pool.query(tableQueryText);
     res.send("Transaction Table Created");

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
+import useSWR from "swr";
 import { Close } from "@/utilities/Allsmallicons";
 import Button from "./Button";
 
@@ -11,7 +12,6 @@ export default function AddCategoryModal({ open, onClose }) {
   const [categoryName, setCategoryName] = useState("");
   const handler = async () => {
     let res = await axios.post(api, { categoryName });
-   
   };
 
   return (
@@ -42,9 +42,7 @@ export default function AddCategoryModal({ open, onClose }) {
               onChange={(event) => setCategoryName(event.target.value)}
             />
           </div>
-          <div className="" onClick={handler}>
-            <Button title="Add" bg="#16A34A"></Button>
-          </div>
+          <Button title="Add" bg="#16A34A" onClick={handler}></Button>
         </div>
       </div>
     </div>
