@@ -1,11 +1,11 @@
 import { pool } from "../db.js";
 
 export const addTransaction =  async (req, response) => {
-    const { amount, payeeUser, desc } = req.body;
+    const { amount, payeeUser, desc, value, userid } = req.body;
     try {
-      const queryText = "INSERT INTO transactions (amount, name, description) VALUES ($1, $2, $3) RETURNING *";
+      const queryText = "INSERT INTO transactions (amount, name, description, category_id, user_id) VALUES ($1, $2, $3,$4, $5) RETURNING *";
     //  const queryText = "INSERT INTO transactions (name, amount, transaction_type, description) VALUES ($1, $2, $3,$4) RETURNING *";
-      const res = await pool.query(queryText, [  amount, payeeUser,desc ]);
+      const res = await pool.query(queryText, [  amount, payeeUser,desc, value, userid ]);
       response.send(res.rows[0])
     } catch (error) {
       console.error(error);

@@ -2,7 +2,12 @@ export default function Button(props) {
   //  console.log(props);
   return (
     <button
-      onClick={props.onClick}
+     /*   onClick={Event => {
+          props.onClick;
+          props.added;
+        }}
+        */
+      onClick={props.onClick} 
       className="cursor-pointer flex items-center justify-center text-white h-8 gap-1 px-3 rounded-[20px]"
       style={{ background: props.bg }}
     >

@@ -8,7 +8,7 @@ import Button from "./Button";
 const api = "http://localhost:8000/category";
 
 export default function AddCategoryModal({ open, onClose }) {
-  if (!open) return null;
+  //if (!open) return null;
   const [categoryName, setCategoryName] = useState("");
   const [desc, setDesc] = useState("");
   const handler = async () => {
@@ -53,7 +53,12 @@ export default function AddCategoryModal({ open, onClose }) {
               onChange={(event) => setDesc(event.target.value)}
             />
           </div>
-          <Button title="Add" bg="#16A34A" onClick={handler}></Button>
+          <Button
+            title="Add"
+            bg="#16A34A"
+            onClick={handler}
+            added={onClose}
+          ></Button>
         </div>
       </div>
     </div>

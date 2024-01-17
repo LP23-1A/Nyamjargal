@@ -4,29 +4,29 @@ import axios from "axios";
 import { Close } from "@/utilities/Allsmallicons";
 import Button from "./Button";
 import { string } from "yup";
-import RecordCatList from "./RecordCatList";
+
 
 const api = "http://localhost:8000/transaction";
 
 export default function AddRecordModal({ open, onClose }) {
+
+  const catdata = JSON.parse(localStorage.getItem("category"));
+  const userid = JSON.parse(localStorage.getItem("userid"));
   if (!open) return null;
   const [amount, setAmount] = useState("");
   const [payeeUser, setPayeeuser] = useState("");
   const [desc, setDesc] = useState("");
+  const [value, setValue] = useState("");
   const [isExpense, setExpense ] = useState(true)
   const expense = (changer) => {
     setExpense(changer);
 }
 
-const handler = async () => {
-  let res = await axios.post(api, { amount, payeeUser,desc });
-//  console.log(amount, payeeUser, desc);
-};
+const handler = async () => { let res = await axios.post(api, { amount, payeeUser,desc,value,userid }); };
 
   return (
     <div className="bg-black/[0.7] w-screen h-screen flex justify-center items-center" onClick={onClose}>
       <div className=" w-[760px] flex flex-col bg-[#fff] rounded-2xl" onClick={(e) => {e.stopPropagation();}}>
-
         <div className=" flex justify-between py-5 px-6 items-center border-b">
           <h1 className=" text-[20px] font-semibold leading-7">Add Record</h1>
           <div className=" cursor-pointer" onClick={onClose}>
@@ -46,9 +46,20 @@ const handler = async () => {
                    />
             <h1 className=" absolute top-1 right-4 cursor-pointer">Amount</h1>
               </div>
-             <div>
+             <div className=" flex flex-col w-44">
               <p>Category</p>
-              <RecordCatList/>
+
+              <select  onChange={(event) => setValue(event.target.value)}  defaultValue={"eee"}>
+                 {catdata && catdata.map((el, idi) => {
+                    return (
+                       <option value={el.id} key={idi}>{el.name}</option>
+                     );
+                   })}
+              </select>
+
+
+
+
              </div>
              <div className="flex justify-between">
                 <div className="flex flex-col">

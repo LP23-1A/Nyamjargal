@@ -19,9 +19,9 @@ export const addCategory =  async (req, response) => {
 
   export const getCategory = async (req, res) => {
     try {
-        const queryText =`SELECT name FROM category`;
+        const queryText =`SELECT name, id FROM category`;
         const response = await pool.query(queryText);
-       // console.log(response.rows);
+        console.log(response.rows);
         res.send(response.rows);
       } catch (error) {
         console.error(error);

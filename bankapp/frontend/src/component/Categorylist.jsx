@@ -17,19 +17,6 @@ export default function Categorylist() {
     handler();
   }, []);
 
-  const categoryData = [
-    { name: "Food and Drinks" },
-    { name: "Shopping" },
-    { name: "Housing" },
-    { name: "Transportation" },
-    { name: "Vehicle" },
-    { name: "Life & Entertaiment" },
-    { name: "Communication, PC" },
-    { name: "Financial expenses" },
-    { name: "Investments" },
-    { name: "Income" },
-    { name: "Others" },
-  ];
   return (
     <div className=" flex flex-col gap-2">
       <div className="flex flex-col gap-2">

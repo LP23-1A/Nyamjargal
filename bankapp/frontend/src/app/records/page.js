@@ -8,39 +8,26 @@ import Todaydata from "@/component/Todaydata";
 import Yesterday from "@/component/Yesterdaydata";
 import AddCategoryModal from "@/component/AddCategoryModal";
 import AddRecordModal from "@/component/AddRecordModal";
-import {
-  Pluswhite,
-  Backbutton,
-  Forwardbutton,
-  Downarrow,
-  Plusblue,
-} from "@/utilities/Allsmallicons";
+import {Pluswhite, Backbutton, Forwardbutton, Downarrow, Plusblue,} from "@/utilities/Allsmallicons";
 
 const api = "http://localhost:8000/category";
 
 export default function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
   const [openRecordModal, setRecordModal] = useState(false);
-  const toggleModalRecord = () => {
-    setRecordModal(!openRecordModal);
-  };
-  const handler = async () => {
-    let res = await axios.delete(api);
-  };
+
+  const toggleModalRecord = () => { setRecordModal(!openRecordModal); };
+  const handler = async () => { let res = await axios.delete(api);};
 
   return (
     <div className="flex justify-center">
       <div className="flex flex-col fixed -z-20">
         <Navbar onClick={toggleModalRecord} />
-
         <div className="flex  gap-6 py-6 px-[120px] w-[1440px] bg-[#F3F4F6]">
           <div className=" inline-flex px-4 py-6 gap-6 flex-col  w-[282px] bg-[#F9FAFB] rounded-xl">
             <div className="flex flex-col gap-6">
-              <h1 className=" font-semibold text-2xl">Records</h1>
-              <div onClick={() => setRecordModal(true)}>
-                {" "}
-                <Button title="Add" icon={<Pluswhite />} bg="#0166FF" />
-              </div>
+              <h1 className=" font-semibold text-2xl">Records</h1>  
+              <Button   onClick={() => setRecordModal(true)} title="Add" icon={<Pluswhite />} bg="#0166FF" />
             </div>
             <input
               type="text"
@@ -85,7 +72,7 @@ export default function Dashboard() {
                     className=" cursor-pointer"
                     onClick={() => setOpenModal(true)}
                   >
-                    {" "}
+                 
                     Add Category
                   </button>
                 </div>
@@ -144,7 +131,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <AddCategoryModal open={openModal} onClose={() => setOpenModal(false)} />
+      {openModal && (<AddCategoryModal open={openModal} onClose={() => setOpenModal(false)}  />)}
       <AddRecordModal
         open={openRecordModal}
         onClose={() => setRecordModal(false)}
