@@ -9,7 +9,7 @@ export default function Categorylist() {
   const handler = async () => {
     let res = await axios.get(api);
     setCategoryName(res.data);
-    console.log("catdata", res.data);
+ //   console.log("catdata", res.data);
   };
 
   useEffect(() => {

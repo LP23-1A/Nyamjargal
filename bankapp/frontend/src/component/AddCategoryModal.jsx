@@ -10,8 +10,9 @@ const api = "http://localhost:8000/category";
 export default function AddCategoryModal({ open, onClose }) {
   if (!open) return null;
   const [categoryName, setCategoryName] = useState("");
+  const [desc, setDesc] = useState("");
   const handler = async () => {
-    let res = await axios.post(api, { categoryName });
+    let res = await axios.post(api, { categoryName, desc });
   };
 
   return (
@@ -40,6 +41,16 @@ export default function AddCategoryModal({ open, onClose }) {
               name="name"
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
               onChange={(event) => setCategoryName(event.target.value)}
+            />
+          </div>
+          <div className=" flex gap-3 items-center justify-between">
+            <div>Category Description:</div>
+            <input
+              type="text"
+              placeholder="Description"
+              name="name"
+              className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
+              onChange={(event) => setDesc(event.target.value)}
             />
           </div>
           <Button title="Add" bg="#16A34A" onClick={handler}></Button>

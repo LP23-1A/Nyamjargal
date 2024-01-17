@@ -15,6 +15,9 @@ const api = "http://localhost:8000/category";
 export default function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
   const [openRecordModal, setRecordModal] = useState(false);
+  const toggleModalRecord = () => {
+    setRecordModal(!openRecordModal)
+}
   const handler = async () => {
     let res = await axios.delete(api);
   };
@@ -23,7 +26,7 @@ export default function Dashboard() {
     <div className="flex justify-center">
       
       <div className="flex flex-col fixed -z-20">
-        <Navbar />
+        <Navbar onClick={toggleModalRecord} />
         <div className="flex  gap-6 py-6 px-[120px] w-[1440px] bg-[#F3F4F6]">
           <div className=" inline-flex px-4 py-6 gap-6 flex-col  w-[282px] bg-[#F9FAFB] rounded-xl">
             <div className="flex flex-col gap-6">

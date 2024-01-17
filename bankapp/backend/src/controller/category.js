@@ -3,12 +3,12 @@ import { pool } from "../db.js";
 
 
 export const addCategory =  async (req, response) => {
-    const { categoryName } = req.body;
+    const { categoryName, desc } = req.body;
     try {
      // const queryText = "INSERT INTO category (name) VALUES ($1) RETURNING *";
        // "INSERT INTO category (name, description, createAt, updateAt, category_image) VALUES ($1, $2, $3,$4,$5) RETURNING *";
      // const res = await pool.query(queryText);
-      const res = await pool.query("INSERT INTO category (name) VALUES ($1) RETURNING *", [categoryName]);
+      const res = await pool.query("INSERT INTO category (name, description) VALUES ($1, $2) RETURNING *", [categoryName, desc]);
       response.send(res.rows[0]);
   
     } catch (error) {
