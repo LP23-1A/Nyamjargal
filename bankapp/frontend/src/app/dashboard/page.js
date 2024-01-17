@@ -1,7 +1,7 @@
 "use client";
 import Navbar from "@/component/Navbar";
 import Doughnut from "@/component/DonutChart";
-import BarChart, {Barchart} from "@/component/BarChart"
+import BarChart from "@/component/BarChart"
 import {Balancelogo, Balancecircle, Geldwhite, Logowhite, GreenCircle, BlueCircle, Greenarrow} from "@/utilities/Allsmallicons.jsx"
 import { House, ForkKnife } from "@/utilities/Categoryicons";
 
@@ -17,13 +17,10 @@ export default function dashboard() {
             <div
               className=" flex flex-col justify-between p-8 w-[384px] h-[219px] rounded-[18px] bg-[#0166FF]"
               style={{
-                backgroundImage:
-                  'url("https://s3-alpha-sig.figma.com/img/4885/3bc9/b9fecceef3cee30b02fc6d7ea7a6fba7?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bhbOMYlEhQ4nShK1afe~hheQT5dLMkO8CqiNgBlGlsgKzBw22TPuetPQNmqX6jGjCESZiNq4uDXjRmanYRVIP3CQVSPiwt950eR-MW~X3d4Zw4rQC9mvBrSQ4vPQ4kOo1V8J-eQvSpS5d3cJy2Z8L-EXHksHr2lGx19EAhpmVeQhnyAc85hdqjDVJgKMMxk6HYK5PxFsN76orxaZ~-6NFFo1dZQ2R-~VJMfvX1SsKqRulA473umvp8JVA1vlWNFwkmlR-jsb3lK7G6GiAeXfn98KwiSND0LdvGSTNw0p-HmVkrhUUKHmvGMc5e3UQ0yUaPxunAmmGUz3ppC8al7RFQ__")',
+                backgroundImage:'url("https://s3-alpha-sig.figma.com/img/4885/3bc9/b9fecceef3cee30b02fc6d7ea7a6fba7?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bhbOMYlEhQ4nShK1afe~hheQT5dLMkO8CqiNgBlGlsgKzBw22TPuetPQNmqX6jGjCESZiNq4uDXjRmanYRVIP3CQVSPiwt950eR-MW~X3d4Zw4rQC9mvBrSQ4vPQ4kOo1V8J-eQvSpS5d3cJy2Z8L-EXHksHr2lGx19EAhpmVeQhnyAc85hdqjDVJgKMMxk6HYK5PxFsN76orxaZ~-6NFFo1dZQ2R-~VJMfvX1SsKqRulA473umvp8JVA1vlWNFwkmlR-jsb3lK7G6GiAeXfn98KwiSND0LdvGSTNw0p-HmVkrhUUKHmvGMc5e3UQ0yUaPxunAmmGUz3ppC8al7RFQ__")',
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-   
-              }}
-            >
+              }}>
               <div className="items-center gap-2 p-[4.7px] inline-flex">
                 <Logowhite />
                 <Geldwhite />
