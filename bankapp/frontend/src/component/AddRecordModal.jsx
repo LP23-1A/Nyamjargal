@@ -4,6 +4,7 @@ import axios from "axios";
 import { Close } from "@/utilities/Allsmallicons";
 import Button from "./Button";
 import { string } from "yup";
+import RecordCatList from "./RecordCatList";
 
 const api = "http://localhost:8000/transaction";
 
@@ -47,13 +48,7 @@ const handler = async () => {
               </div>
              <div>
               <p>Category</p>
-              <select defaultValue={'DEFAULT'} >
-        <option value="1">Mr</option>
-        <option value="2">Mrs</option>
-        <option value="3">Ms</option>
-        <option value="4">Miss</option>
-        <option value="5">Dr</option>
-      </select>
+              <RecordCatList/>
              </div>
              <div className="flex justify-between">
                 <div className="flex flex-col">
