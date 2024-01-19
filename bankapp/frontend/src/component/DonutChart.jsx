@@ -6,12 +6,13 @@ import {Bills, Food, Shopping, Insurance, Clothing} from "@/utilities/IncomeCirc
 
 ChartJS.register( ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend );
 
-const PieChart = () => {
+export default function PieChart  (props)  {
+  console.log("eee",props.data);
   const [chartData, setChartData] = useState({
     labels: ["Bills", "Food", "Shopping", "Insurence", "Clothing"],
     datasets: [
       {
-        data: [100000, 500000, 800000, 400000, 100000],
+        data: [400000, 500000, 800000, 400000, 100000],
         backgroundColor: [
           "rgba(22, 189, 202, 1)",
           "rgba(28, 100, 242, 1)",
@@ -85,4 +86,3 @@ const PieChart = () => {
   );
 };
 
-export default PieChart;

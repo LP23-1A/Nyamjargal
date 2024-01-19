@@ -9,10 +9,10 @@ import { string } from "yup";
 const api = "http://localhost:8000/transaction";
 
 export default function AddRecordModal({ open, onClose }) {
-
+  if (!open) return null;
   const catdata = JSON.parse(localStorage.getItem("category"));
   const userid = JSON.parse(localStorage.getItem("userid"));
-  if (!open) return null;
+  console.log("llll",userid)
   const [amount, setAmount] = useState("");
   const [payeeUser, setPayeeuser] = useState("");
   const [desc, setDesc] = useState("");
@@ -22,7 +22,10 @@ export default function AddRecordModal({ open, onClose }) {
     setExpense(changer);
 }
 
-const handler = async () => { let res = await axios.post(api, { amount, payeeUser,desc,value,userid }); };
+const handler = async () => { let res = await axios.post(api, { amount, payeeUser,desc,value, userid });
+console.log("") 
+  console.log("new Transaction");
+};
 
   return (
     <div className="bg-black/[0.7] w-screen h-screen flex justify-center items-center" onClick={onClose}>

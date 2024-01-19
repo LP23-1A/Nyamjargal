@@ -1,12 +1,34 @@
 "use client";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Navbar from "@/component/Navbar";
 import Doughnut from "@/component/DonutChart";
-import BarChart from "@/component/BarChart"
-import {Balancelogo, Balancecircle, Geldwhite, Logowhite, GreenCircle, BlueCircle, Greenarrow} from "@/utilities/Allsmallicons.jsx"
-import { House} from "@/utilities/Categoryicons";
+import BarChart from "@/component/BarChart";
+import {
+  Balancelogo,
+  Balancecircle,
+  Geldwhite,
+  Logowhite,
+  GreenCircle,
+  BlueCircle,
+  Greenarrow,
+} from "@/utilities/Allsmallicons.jsx";
+import { House } from "@/utilities/Categoryicons";
+const api = "http://localhost:8000/transaction";
 
 export default function dashboard() {
-  const bgurl = "https://s3-alpha-sig.figma.com/img/4885/3bc9/b9fecceef3cee30b02fc6d7ea7a6fba7?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bhbOMYlEhQ4nShK1afe~hheQT5dLMkO8CqiNgBlGlsgKzBw22TPuetPQNmqX6jGjCESZiNq4uDXjRmanYRVIP3CQVSPiwt950eR-MW~X3d4Zw4rQC9mvBrSQ4vPQ4kOo1V8J-eQvSpS5d3cJy2Z8L-EXHksHr2lGx19EAhpmVeQhnyAc85hdqjDVJgKMMxk6HYK5PxFsN76orxaZ~-6NFFo1dZQ2R-~VJMfvX1SsKqRulA473umvp8JVA1vlWNFwkmlR-jsb3lK7G6GiAeXfn98KwiSND0LdvGSTNw0p-HmVkrhUUKHmvGMc5e3UQ0yUaPxunAmmGUz3ppC8al7RFQ__";
+  const [transaction, setTransaction] = useState();
+  const handler = async () => {
+    let res = await axios.get(api);
+    setTransaction(res.data);
+    console.log("dataaaa", res.data);
+  };
+  useEffect(() => {
+    handler();
+  }, []);
+
+  const bgurl =
+    "https://s3-alpha-sig.figma.com/img/4885/3bc9/b9fecceef3cee30b02fc6d7ea7a6fba7?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bhbOMYlEhQ4nShK1afe~hheQT5dLMkO8CqiNgBlGlsgKzBw22TPuetPQNmqX6jGjCESZiNq4uDXjRmanYRVIP3CQVSPiwt950eR-MW~X3d4Zw4rQC9mvBrSQ4vPQ4kOo1V8J-eQvSpS5d3cJy2Z8L-EXHksHr2lGx19EAhpmVeQhnyAc85hdqjDVJgKMMxk6HYK5PxFsN76orxaZ~-6NFFo1dZQ2R-~VJMfvX1SsKqRulA473umvp8JVA1vlWNFwkmlR-jsb3lK7G6GiAeXfn98KwiSND0LdvGSTNw0p-HmVkrhUUKHmvGMc5e3UQ0yUaPxunAmmGUz3ppC8al7RFQ__";
   return (
     <div className=" flex justify-center">
       <div className=" flex flex-col">
@@ -16,10 +38,11 @@ export default function dashboard() {
             <div
               className=" flex flex-col justify-between p-8 w-[384px] h-[219px] rounded-[18px] bg-[#0166FF]"
               style={{
-                backgroundImage:`url("${bgurl}")`,
+                backgroundImage: `url("${bgurl}")`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-              }}>
+              }}
+            >
               <div className="items-center gap-2 p-[4.7px] inline-flex">
                 <Logowhite />
                 <Geldwhite />
@@ -29,8 +52,10 @@ export default function dashboard() {
                   <p className=" opacity-50">Cash</p>{" "}
                   <span className=" text-2xl">10,000,000</span>
                 </div>
-                 <Balancelogo />
-                 <div className=" absolute"><Balancecircle/></div>
+                <Balancelogo />
+                <div className=" absolute">
+                  <Balancecircle />
+                </div>
               </div>
             </div>
 
@@ -81,7 +106,7 @@ export default function dashboard() {
                 <p>Income - Expense</p>
               </div>
               <div className=" flex flex-col px-6 py-8">
-                  <BarChart/>
+                <BarChart />
               </div>
             </div>
             <div className=" flex flex-col w-2/4  rounded-[18px] bg-white">
@@ -90,24 +115,40 @@ export default function dashboard() {
                 <p>Jun 1 - Nov 30</p>
               </div>
               <div className=" flex flex-col px-6 py-8">
-                  <Doughnut/>
+                <Doughnut data={transaction} />
               </div>
             </div>
           </div>
           {/* CHART JS SECTION BOTTOM */}
           <div>
-            <div className=" flex flex-col w-full h-[226px] rounded-[18px] bg-white">
+            <div className=" flex flex-col w-full rounded-[18px] bg-white">
               <div className=" flex gap-2 px-6 py-4 items-center border-b border-[#E2E8F0] justify-between font-semibold">
                 <p>Last Records</p>
               </div>
               <div className=" flex flex-col px-6 py-8">
-                <House />
-              </div>
+
+                <div className=" flex flex-col gap-4">
+                  {transaction &&
+                    transaction.map((el, idp) => {
+                      return (
+                        <div key={idp + el.name} className="flex justify-between" >
+                          <div className="flex gap-4">
+                            <div className=" flex items-center justify-center w-10 h-10 bg-[#0166FF] rounded-full"><House /></div>                
+                            <p>{el.name}</p>
+                          </div>                   
+                            <p>{el.amount}</p>
+                          
+                        </div>
+                      );
+                    })}
+                </div>
+
+              </div>          
             </div>
           </div>
-        </div>
-     
 
+
+        </div>
       </div>
     </div>
   );
