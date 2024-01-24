@@ -22,6 +22,7 @@ export default function Login() {
         router.push("/dashboard");
       }
     } catch (error) {
+      seterror("Wrong username & password");
       console.log("error");
     }
   };
@@ -51,10 +52,11 @@ export default function Login() {
               className="bg-[#0166FF] text-white rounded-[20px] h-8"
               onClick={handler}
             >
-              {" "}
-              Log in{" "}
+              
+              Log in
             </button>
           </div>
+          <p className=" text-red-500">{error}</p>
           <div className="flex">
             <h1>Don’t have account?</h1>
             <button
@@ -65,6 +67,7 @@ export default function Login() {
               Sign up{" "}
             </button>
           </div>
+       
         </div>
       </div>
       <div className=" w-1/2 bg-[#0166FF] h-screen"></div>
