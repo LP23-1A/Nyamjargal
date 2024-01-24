@@ -27,6 +27,7 @@ const Signup = async (req: Request, res: Response) => {
 const login = async (req: Request, res: Response) => {
 
     try {
+      
       const { username ,password}: {username:string; password:string} = req.body;
       //console.log("wwwww",username,password);
       const user:SignUpType | null = await UserModel.findOne({ username });
