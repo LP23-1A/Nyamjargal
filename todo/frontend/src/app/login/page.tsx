@@ -1,8 +1,9 @@
 "use client";
-
+import bg from "@/utils/BG.jpg"
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
+
 const api = "http://localhost:8000/auth/login";
 const BASE_URL = "http://localhost:8000";
 
@@ -27,7 +28,7 @@ export default function Login() {
     }
   };
   return (
-    <div className=" flex w-screen h-screen">
+    <div className=" flex w-screen h-screen" style={{backgroundImage: `url(${bg.src})`, backgroundSize: "cover"}}>
       <div className=" flex justify-center w-1/2 items-center font-roboto">
         <div className=" flex w-[384px] flex-col gap-[40px] justify-center items-center">
           <div className=" flex flex-col gap-2 items-center">
@@ -41,12 +42,14 @@ export default function Login() {
               placeholder="dorj"
               onChange={(event) => setusername(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
+              required
             />
             <input
               type="password"
               placeholder="Must have at least 6 characters"
               onChange={(event) => setpassword(event.target.value)}
               className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
+              required
             />
             <button
               className="bg-[#0166FF] text-white rounded-[20px] h-8"
@@ -62,9 +65,7 @@ export default function Login() {
             <button
               className=" text-[#0166FF] px-3 rounded-3xl"
               onClick={() => router.push("/signup")}
-            >
-              {" "}
-              Sign up{" "}
+            >  Sign up
             </button>
           </div>
        
