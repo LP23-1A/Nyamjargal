@@ -28,50 +28,29 @@ export default function Login() {
     }
   };
   return (
-    <div className=" flex w-screen h-screen" style={{backgroundImage: `url(${bg.src})`, backgroundSize: "cover"}}>
-      <div className=" flex justify-center w-1/2 items-center font-roboto">
+    <div className=" flex w-screen h-screen justify-center items-center" style={{backgroundImage: `url(${bg.src})`, backgroundSize: "cover",}}>
+      <div className=" flex justify-center items-center font-roboto bg-transparent border-[2px] border-[#D1D5DB]/20 backdrop-blur-xl shadow shadow-blue-500/40 text-white rounded-xl py-8 px-10">
         <div className=" flex w-[384px] flex-col gap-[40px] justify-center items-center">
           <div className=" flex flex-col gap-2 items-center">
-            <h2 className=" font-semibold leading-8">Welcome Back</h2>
+            <h2 className=" font-semibold leading-8 text-[36px]">Login</h2>
             <p>Welcome back, Please enter your details</p>
           </div>
 
           <div className="flex flex-col gap-4 w-full">
-            <input
-              type="text"
-              placeholder="dorj"
-              onChange={(event) => setusername(event.target.value)}
-              className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Must have at least 6 characters"
-              onChange={(event) => setpassword(event.target.value)}
-              className=" h-12  bg-[#F3F4F6] rounded-lg border-[1px] border-[#D1D5DB] p-4"
-              required
-            />
-            <button
-              className="bg-[#0166FF] text-white rounded-[20px] h-8"
-              onClick={handler}
-            >
-              
-              Log in
-            </button>
+            <input type="text" placeholder="dorj" onChange={(event) => setusername(event.target.value)} 
+            className=" h-12 bg-transparent rounded-[40px] border-[2px] outline-none border-[#D1D5DB]/20 p-4 placeholder:text-white/60" required />
+            <input type="password" placeholder="Must have at least 6 characters" onChange={(event) => setpassword(event.target.value)}
+              className=" h-12 bg-transparent rounded-[40px] border-[2px] border-[#D1D5DB]/20 p-4 placeholder:text-white/60" required />
+            <button className="bg-[#fff] text-[#333] rounded-[20px] h-8" onClick={handler}> Log in </button>
           </div>
-          <p className=" text-red-500">{error}</p>
+          <p className=" text-[#ff6363ed]">{error}</p>
           <div className="flex">
             <h1>Don’t have account?</h1>
-            <button
-              className=" text-[#0166FF] px-3 rounded-3xl"
-              onClick={() => router.push("/signup")}
-            >  Sign up
-            </button>
+            <button className=" text-[#FFFF00] px-3 rounded-3xl" onClick={() => router.push("/signup")}>  Sign up </button>
           </div>
        
         </div>
       </div>
-      <div className=" w-1/2 bg-[#0166FF] h-screen"></div>
     </div>
   );
 }
