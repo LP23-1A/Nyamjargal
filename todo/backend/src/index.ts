@@ -5,6 +5,7 @@ dotenv.config();
 const PORT = process.env.PORT || 8000;
 import { connectDatabase } from "./utils/database";
 import { auth } from "./router/User";
+import { todo } from './router/Todo';
 
 const start = () => {
   const app = express();
@@ -13,6 +14,7 @@ const start = () => {
   app.use(cors());
 
   app.use("/auth", auth);
+  app.use("/todo",todo);
 
   //app.use(cors({origin : "*"}));
 
