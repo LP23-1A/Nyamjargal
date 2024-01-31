@@ -5,19 +5,8 @@ import { useRouter } from "next/navigation";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {Box, Button, FormControl,IconButton,InputAdornment,InputLabel, OutlinedInput,Stack,TextField,} from "@mui/material";
 
-
-
 export default function Login ()  {
     const [showPassword, setShowPassword] = React.useState(false);
-
-    function handleClickShowPassword(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error("Function not implemented.");
-    }
-
-    function handleMouseDownPassword(event: MouseEvent<HTMLButtonElement, MouseEvent>): void {
-        throw new Error("Function not implemented.");
-    }
-
   return (
     <Stack sx={{width: "448px",padding: "32px", display: "flex",gap: "48px",flexDirection: "column",}} >
       <Box display={"flex"} justifyContent={"center"} fontSize={"28px"}>
@@ -40,8 +29,7 @@ export default function Login ()  {
                 <InputAdornment position="end">
                   <IconButton
                     aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
+        
                     edge="end"
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -57,7 +45,7 @@ export default function Login ()  {
         </Stack>
       </Stack>
       <Stack sx={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-        <Button sx={{paddingX: "16px", paddingY: "8px", borderRadius: "5px", cursor: "pointer",}} variant="contained" color="success" >
+        <Button disabled sx={{paddingX: "16px", paddingY: "8px", borderRadius: "5px", cursor: "pointer",}} variant="contained" color="success" >
           Нэвтрэх
         </Button>
         <Box display={"flex"} justifyContent={"center"}>

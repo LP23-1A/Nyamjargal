@@ -1,10 +1,20 @@
-import { Box, Stack } from "@mui/material";
+'use client'
+import { Box, Button, Stack } from "@mui/material";
 import { PermIdentitySharp, ShoppingBasketSharp } from "@mui/icons-material";
 import {Pineconeblack} from "@/utils/allicons";
 import SearchAppBar from "./Search";
+import React from "react";
 
 
 export default function Navbar ()  {
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
       <Stack sx={{ display: "flex", width: "1440px", justifyContent: "space-between", paddingY: "20px", paddingX: "200px", flexDirection: "row", }} >
@@ -30,8 +40,7 @@ export default function Navbar ()  {
               alignItems: "center",
             }}
           >
-            <PermIdentitySharp />
-            <Box>Нэвтрэх</Box>
+            <Button children = "Нэвтрэх" startIcon = {<PermIdentitySharp/>} disableFocusRipple disableElevation/>
           </Stack>
         </Stack>
       </Stack>
