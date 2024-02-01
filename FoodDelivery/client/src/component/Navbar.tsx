@@ -1,12 +1,13 @@
-'use client'
-import { Box, Button, Stack } from "@mui/material";
+"use client";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { PermIdentitySharp, ShoppingBasketSharp } from "@mui/icons-material";
-import {Pineconeblack} from "@/utils/allicons";
+import { Pineconeblack } from "@/utils/allicons";
 import SearchAppBar from "./Search";
 import React from "react";
 
 
-export default function Navbar ()  {
+export default function Navbar() {
+
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -16,35 +17,26 @@ export default function Navbar ()  {
   };
 
   return (
-    <Stack sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-      <Stack sx={{ display: "flex", width: "1440px", justifyContent: "space-between", paddingY: "20px", paddingX: "200px", flexDirection: "row", }} >
-        <Stack sx={{ display: "flex", gap: "24px", flexDirection: "row" }}>
+    <Stack  alignItems={"center"}>
+      <Stack  width={"1440px"} direction={"row"} justifyContent={"space-between"} padding={"20px 100px"} >
+        <Stack direction={"row"} gap={"24px"} >
           <Pineconeblack />
-          <Stack sx={{ display: "flex", gap: "20px", flexDirection: "row" }}>
-            <Box color={"green"}>НҮҮР</Box>
-            <Box>ХООЛНЫ ЦЭС</Box>
-            <Box>ХҮРГЭЛТИЙН БҮС</Box>
+          <Stack direction={"row"} gap={"20px"}>
+            <Typography color={"green"}>НҮҮР</Typography>
+            <Typography>ХООЛНЫ ЦЭС</Typography>
+            <Typography>ХҮРГЭЛТИЙН БҮС</Typography>
           </Stack>
         </Stack>
-        <Stack sx={{ display: "flex", gap: "24px", flexDirection: "row" }}>
+        <Stack direction={"row"} gap={"24px"} >
           <SearchAppBar />
-          <Stack sx={{ display: "flex", gap: "12px", flexDirection: "row", alignItems: "center", }} >
+          <Button children="Сагс" startIcon={<ShoppingBasketSharp />} />
+          <Stack direction={"row"} gap={"12px"} alignItems={"center"}  >
             <ShoppingBasketSharp />
-            <Box>Сагс</Box>
-          </Stack>
-          <Stack
-            sx={{
-              display: "flex",
-              gap: "12px",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Button children = "Нэвтрэх" startIcon = {<PermIdentitySharp/>} disableFocusRipple disableElevation/>
-          </Stack>
+            <Typography>Сагс</Typography>
+          </Stack>      
+            <Button  children="Нэвтрэх" startIcon={<PermIdentitySharp />} />
         </Stack>
       </Stack>
     </Stack>
   );
-};
-
+}
