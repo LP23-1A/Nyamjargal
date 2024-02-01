@@ -12,7 +12,7 @@ export default function Login ()  {
       <Box display={"flex"} justifyContent={"center"} fontSize={"28px"}>
         Нэвтрэх
       </Box>
-      <Stack sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Stack direction="column" flex={''} gap="16px" sx={{ display: "flex",  gap: "16px" }}>
         <Stack sx={{ flex: "" }}>
           <Box fontSize={"14px"}>Имэйл</Box>
           <TextField sx={{ border: "1px solid gray", "&:focus": "none" }} id="filled-multiline-flexible" label="Имэйл хаягаа оруулна уу" multiline maxRows={4} variant="filled"/>
