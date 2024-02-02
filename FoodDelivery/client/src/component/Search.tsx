@@ -1,24 +1,14 @@
 "use client";
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import { Stack } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
     width: "auto",
@@ -46,7 +36,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("sm")]: {
       width: "12ch",
       "&:focus": {
-        width: "20ch",
+        width: "20ch",  
       },
     },
   },
@@ -54,24 +44,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        border: "1px solid black",
-        borderRadius: "5px",
-        height: "40px",
-        width: "240px",
-      }}
-    >
+    <Stack borderRadius={"10px"} height={"40px"} width={"240px"} border={" 1px solid black"}>
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <StyledInputBase
+        <StyledInputBase 
           placeholder="Хайх"
           inputProps={{ "aria-label": "search" }}
         />
       </Search>
-    </Box>
+    </Stack>
   );
 }

@@ -1,6 +1,6 @@
 import { Box, Stack } from "@mui/material";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
-import { Pineconewhite, Footerbg } from "@/utils/allicons";
+import { Pineconewhite, Background } from "@/utils/allicons";
 
 export default function Footer() {
   return (
