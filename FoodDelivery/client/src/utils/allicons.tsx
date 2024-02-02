@@ -21,6 +21,7 @@ function Pineconeblack() {
 function Pineconewhite() {
   return (
     <svg
+
       xmlns="http://www.w3.org/2000/svg"
       width="33"
       height="27"
@@ -41,10 +42,11 @@ function Pineconewhite() {
 function Background() {
   return (
     <svg
+    className="absolute"
       xmlns="http://www.w3.org/2000/svg"
-      width="1440"
-      height="1056"
-      viewBox="0 0 1440 1056"
+      width="100%"
+      height="1400"
+      viewBox="0 0 1440 1100"
       fill="none"
     >
       <path
