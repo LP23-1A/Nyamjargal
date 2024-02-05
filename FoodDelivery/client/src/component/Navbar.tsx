@@ -46,7 +46,7 @@ export default function Navbar() {
               <Box onClick={() => handleClick(index)}>
                 <Typography
                   sx={activeMenu === index ? { color: "green" } : {}}
-                  key={menu}
+                  key={menu+index}
                 >
                   {" "}
                   {menu}{" "}

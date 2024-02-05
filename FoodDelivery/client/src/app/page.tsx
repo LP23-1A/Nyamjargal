@@ -6,7 +6,7 @@ import Navbar from "@/component/Navbar";
 import Login from "@/component/Login";
 import { Background } from "@/utils/allicons";
 import { Box, Typography } from "@mui/material";
-import homebg from "@/utils/HomeFood2.webp";
+import homebg from "@/utils/HomeFood2.png";
 
 export default function Home() {
   const [modal, setModal] = React.useState<boolean>(false);
@@ -22,6 +22,7 @@ export default function Home() {
       >
         <Background/>
         <Box
+      
           display={"flex"}
           alignItems={"center"}
           justifyContent={"space-between"}
