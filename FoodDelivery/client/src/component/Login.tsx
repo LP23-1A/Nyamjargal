@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -100,18 +101,7 @@ export default function Login() {
         <Box display={"flex"} justifyContent={"center"}>
           Эсвэл
         </Box>
-        <Button
-          sx={{
-            color: "black",
-            border: "1px solid green",
-            paddingX: "16px",
-            paddingY: "8px",
-          }}
-          variant="outlined"
-          size="small"
-        >
-          Бүртгүүлэх
-        </Button>
+        <Link href="/signup"> Бүртгүүлэх</Link>
       </Stack>
     </Stack>
   );

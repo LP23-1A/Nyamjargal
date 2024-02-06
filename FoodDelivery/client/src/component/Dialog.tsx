@@ -21,6 +21,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
@@ -113,10 +114,16 @@ export default function FormDialog() {
           </FormControl>
         </DialogContent>
         <DialogActions>
-          <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Stack
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
             <Button type="submit">Нэвтрэх</Button>
             <Typography>Эсвэл</Typography>
-            <Button onClick={handleClose}>Бүртгүүлэх</Button>
+            <Button onClick={handleClose}>
+              <Link href={'/signup'}>Бүртгүүлэх</Link>
+            </Button>
           </Stack>
         </DialogActions>
       </Dialog>

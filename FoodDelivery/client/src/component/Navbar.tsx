@@ -5,6 +5,7 @@ import { Pineconeblack } from "@/utils/allicons";
 import SearchAppBar from "./Search";
 import React, { useState } from "react";
 import Dialog from "@/component/Dialog";
+import Link from "next/link";
 
 export default function Navbar() {
   const pages = ["НҮҮР", "ХООЛНЫ ЦЭС", "ХҮРГЭЛТИЙН БҮС"];
@@ -43,13 +44,9 @@ export default function Navbar() {
           <Pineconeblack />
           <Stack direction={"row"} gap={"20px"}>
             {pages.map((menu, index) => (
-              <Box onClick={() => handleClick(index)}>
-                <Typography
-                  sx={activeMenu === index ? { color: "green" } : {}}
-                  key={menu+index}
-                >
-                  {" "}
-                  {menu}{" "}
+              <Box key={index} onClick={() => handleClick(index)}>
+                <Typography sx={activeMenu === index ? { color: "green" } : {}}>
+                  {menu}
                 </Typography>
               </Box>
             ))}
@@ -68,11 +65,7 @@ export default function Navbar() {
             startIcon={<ShoppingBasketSharp />}
             disableRipple
           />
-            {
-        open && (
-          <Dialog onChange={handleClickOpen} />
-        )
-      }
+          {open && <Dialog onChange={handleClickOpen} />}
           <Dialog />
           {/* <Button sx={styles.btn} children="Нэвтрэх" startIcon={<PermIdentitySharp />} onClick={handleClickOpen} disableRipple/>
            */}
