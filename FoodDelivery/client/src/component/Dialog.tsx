@@ -13,6 +13,7 @@ import {
   VisibilityOff,
 } from "@mui/icons-material";
 import {
+  Box,
   FilledInput,
   FormControl,
   IconButton,
@@ -57,20 +58,11 @@ export default function FormDialog() {
 
   return (
     <React.Fragment>
-      <Button
-        startIcon={<PermIdentitySharp />}
-        sx={styles.btn}
-        onClick={handleClickOpen}
-        disableRipple
-      >
+      <Button startIcon={<PermIdentitySharp />} sx={styles.btn} onClick={handleClickOpen} disableRipple >
         Нэвтрэх
       </Button>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          component: "form",
-          onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
+      <Dialog   open={open} onClose={handleClose}
+      PaperProps={{ component: "form", onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
             const formData = new FormData(event.currentTarget);
             const formJson = Object.fromEntries((formData as any).entries());
@@ -78,52 +70,32 @@ export default function FormDialog() {
             console.log(email);
             handleClose();
           },
-        }}
-      >
-        <DialogTitle>Нэвтрэх</DialogTitle>
+        }} >
+        <DialogTitle display={"flex"} justifyContent={"center"} fontWeight={"700"}>Нэвтрэх</DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="name"
-            name="email"
-            label="Имэйл"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
-          <FormControl sx={{ m: 1, width: "25ch" }} variant="filled">
-            <InputLabel htmlFor="filled-adornment-password">Нууц үг</InputLabel>
-            <FilledInput
-              id="filled-adornment-password"
+          <InputLabel sx={{color:"black"}}>Имэйл</InputLabel>
+          <TextField sx={{padding:"10px", backgroundColor:"#F5F5F5"}}  autoFocus required  margin="dense" id="name" name="email" placeholder="Имэйл хаягаа оруулна уу" type="email" fullWidth variant="standard"/>
+          <InputLabel  sx={{color:"black"}}>Нууц үг</InputLabel>
+          <FormControl fullWidth  variant="filled">
+            <FilledInput placeholder="Нууц үг" sx={{ backgroundColor:"#F5F5F5"}}   id="filled-adornment-password"
               type={showPassword ? "text" : "password"}
               endAdornment={
                 <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
+                  <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword} edge="end" >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
-                </InputAdornment>
-              }
+                </InputAdornment> }
             />
           </FormControl>
+          <InputLabel   sx={{color:"black", display:"flex", marginTop:"5px", fontSize:"14px",  justifyContent:"flex-end", cursor:"pointer"}}>Нууц үг сэргээх</InputLabel>
         </DialogContent>
-        <DialogActions>
-          <Stack
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <Button type="submit">Нэвтрэх</Button>
-            <Typography>Эсвэл</Typography>
-            <Button onClick={handleClose}>
-              <Link href={'/signup'}>Бүртгүүлэх</Link>
-            </Button>
+        <DialogActions sx={{justifyContent:"center",  width:"100%"}} >
+          <Stack display={"flex"}  alignItems={"center"}>
+            <Button disabled size="medium" sx={{ color: "black", width: 384, padding: 2, backgroundColor: "#F5F5F5"  }}  >Нэвтрэх</Button>
+            <Typography padding={"10px 0px"}>Эсвэл</Typography>
+             <Button size="medium" sx={{ color: "black", width: 384, padding: 2,  border: "1px solid green" }}>    
+         <Link href={'/signup'}>Бүртгүүлэх</Link>
+         </Button>
           </Stack>
         </DialogActions>
       </Dialog>
