@@ -3,7 +3,6 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Image from "next/image";
 import Navbar from "@/component/Navbar";
-import Login from "@/component/Login";
 import { Background } from "@/utils/allicons";
 import { Box, Typography } from "@mui/material";
 import homebg from "@/utils/HomeFood2.png";
@@ -17,12 +16,9 @@ export default function Home() {
   return (
     <Stack>
       <Navbar />
-      <Box
-        sx={{ backgroundColor: "#18BA51", gap: "228px", position: "relative" }}
-      >
+      <Box sx={{ backgroundColor: "#18BA51", gap: "228px", position: "relative" }} >
         <Background/>
         <Box
-      
           display={"flex"}
           alignItems={"center"}
           justifyContent={"space-between"}
