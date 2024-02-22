@@ -17,7 +17,7 @@ export default function Home() {
     <Stack>
       <Navbar />
       <Box sx={{ backgroundColor: "#18BA51", gap: "228px", position: "relative" }} >
-        <Background/>
+        {/* <Background/> */}
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -25,6 +25,7 @@ export default function Home() {
           color={"white"}
           padding={"20px 100px"}
           height={1000}
+         
         >
           <Box display={"flex"} flexDirection={"column"} gap={3}>
             <Typography fontSize={50} fontWeight={"600"}>
