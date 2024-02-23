@@ -4,8 +4,8 @@ import { Pineconewhite, Background } from "@/utils/allicons";
 
 export default function Footer() {
   return (
-    <Stack sx={{ backgroundColor: "green", display: "flex", justifyContent: "center", alignItems: "center",}} >
-      <Stack sx={{ width: "1440px", paddingY: "114px", display: "flex", gap: "40px", flexDirection: "column", }} >
+    <Stack sx={{ backgroundColor: "green", display: "flex", justifyContent: "center", alignItems: "center", width:"100vw"}} >
+      <Stack sx={{ width: "1440px", paddingY: "114px", display: "flex", gap: "40px", flexDirection: "column" }} >
         <Stack sx={{ display: "flex", justifyContent: "center", gap: "12px", fontSize: "20px", flexDirection: "row", }} >
           <Pineconewhite />
           <Box sx={{color: "white"}} > Food Delivery </Box>  
@@ -30,7 +30,10 @@ export default function Footer() {
           <Box>© 2024 Pinecone Foods LLC </Box>
           <Box>Зохиогчийн эрх хуулиар хамгаалагдсан.</Box>
         </Stack>
-        <Background/>
+        <Box sx={{position:"absolute"}}>
+           <Background/>
+        </Box>
+
       </Stack>
     </Stack>
   );

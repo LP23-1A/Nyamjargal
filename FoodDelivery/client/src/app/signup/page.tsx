@@ -29,7 +29,7 @@ export default function Signup() {
     <Stack justifyContent={"center"} alignItems={"center"} >
       <Navbar />
       <Stack width={"448px"} padding={"32px"}>
-        <Typography children="Бүртгүүлэх"></Typography>
+        <Typography children="Бүртгүүлэх" sx={{fontSize:"28px", fontWeight:"700", textAlign:"center", color:"#0D1118"}}/>
         <Box>
           <InputLabel children="Нэр"></InputLabel>
           <TextField placeholder="Нэрээ оруулна уу" id="filled-multiline-flexible" variant="filled" fullWidth />
@@ -38,6 +38,12 @@ export default function Signup() {
           <InputLabel children="И-мэйл"></InputLabel>
           <TextField placeholder="Имэйл хаягаа оруулна уу" id="filled-multiline-flexible" variant="filled" fullWidth />
         </Box>
+        <Box>
+          <InputLabel children="Утас"></InputLabel>
+          <TextField placeholder="Утсаа оруулна уу" id="filled-multiline-flexible" variant="filled" fullWidth />
+        </Box>
+
+        
       </Stack>
       <Footer></Footer>
     </Stack>

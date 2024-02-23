@@ -42,11 +42,10 @@ function Pineconewhite() {
 function Background() {
   return (
     <svg
-      className="absolute"
       xmlns="http://www.w3.org/2000/svg"
-      width="100%"
-      height="1400"
-      viewBox="0 0 1440 1100"
+      width="100vw"
+      height="345"
+      viewBox="0 0 1800 445"
       fill="none"
     >
       <path
