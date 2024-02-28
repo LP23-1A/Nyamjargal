@@ -1,37 +1,20 @@
 "use client";
-import * as React from "react";
 import axios from "axios";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/component/Navbar";
+import { Box,Button,Checkbox,FilledInput,FormControl,FormControlLabel,FormGroup, IconButton, InputAdornment,InputLabel, Stack,TextField, Typography, } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Checkbox,
-  FilledInput,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  IconButton,
-  Input,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
-import { useState } from "react";
+
 const api = "http://localhost:8000/auth/register";
 
 export default function Signup() {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
-
   const initialvalues = {
     name: "",
     email: "",
@@ -39,15 +22,16 @@ export default function Signup() {
     password: '',
     repassword: ''
   };
+  const router = useRouter();
   const [data, setData] = useState(initialvalues);
   const [error,setError] = useState("");
-  const display = () => {
-    console.log(data);
-  };
+  const display = () => {console.log(data); };
 
 
-  const handler = async (e:any) => {
+  const handlerSignup = async (e:React.FormEvent) => {
     e.preventDefault();
+    if(!data.name || !data.email || !data.phonenumber || !data.password || !data.repassword){ setError("Мэдээллээ бүрэн гүйцэд оруулна уу!!!"); return;}
+    if (data.password !== data.repassword) {setError("Нууц үгээ ижилхэн оруулна уу!!!");}
     try {
       
       const res = await axios.post(api,  data );
